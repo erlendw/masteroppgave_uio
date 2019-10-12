@@ -1,0 +1,36 @@
+"region":{
+    "_id":String,
+    "farms":farm[],
+    "country":String,
+    "name":String,
+    "uuid":String
+}
+
+"farm":{
+    "_id":String,
+    "owner":String,
+    "address":String,
+    "fields":field[],
+    "uuid":String
+}
+
+"field":{
+    "_id":String,
+    "description":String,
+    "motes": mote[],
+    "uuid":String
+}
+
+"mote":{
+    "_id":String,
+    "observations": observation[],
+    "uuid":String
+}
+
+"observation":{
+    "_id":String,
+    "soilMoisture":Double,
+    "temprature":Double,
+    "...n":...,
+    "uuid":String
+}
