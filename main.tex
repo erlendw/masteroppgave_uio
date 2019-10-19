@@ -5,8 +5,10 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{minted}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \graphicspath{ {./} }
-
+\usepackage{helvet}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -73,9 +75,9 @@ Many are like me and turn on the shower without giving much thought to the amazi
 \\\\
 Although we rarely think about it water is a finite resource. Drinkable water makes up [1] of the world's water supply. This means that we [might/probably/are] heading in to a future where the seemingly endless access might be dwindling down due to pollution, drought and heavy agricultural needs water might just become the new gold. We will not be arguing whether the commodification of water is the worst thing that can happen to modern society, whether the free market knows what is right for the world, or how much of a toll agriculture is taking on the atmosphere of the earth. Instead we will be taking a long look in to the feasibility of using modern technology to reduce water usage in one of the most water intensive industries; Agriculture.
 \\\\
-Water is high on everyones agenda. The united nations has a list of sustainable development goals, where water is one of the items on the list. The oecd has also put forth water as one of the important things to put on the agenda. In a 2018 note they also mentioned the gathering of information as one of the important steps in improving the situation 
+Water is high on the agenda. The united nations has a list of sustainable development goals, where water is one of the items on the list. The OECD has also put forth water as one of the important things to put on the agenda. In a 2018 note they also mentioned the gathering of information as one of the important steps in improving the situation 
 \\\\
-"Improve information systems on surface and groundwater quality and flows, help to assess risks, and implement programmes tailored to specific challenges."
+"Improve information systems on surface and groundwater quality and flows, help to assess risks, and implement programs tailored to specific challenges."
 \\\\
 Norges Bank Investment Management (Oljefondet) has also made sustainable water management one of their goals for sustainable investing. 
 \\\\
@@ -85,7 +87,7 @@ management and, as relevant, have a clear
 water management strategy."
 
 \section{Water around the world}
-Excessive water usage can lead to a whole host of issues, especially in countries that are prone to having long drought seasons. Most recently [spring/winter 2018] the [China/South African] capital has been struck by severe water shortages and are facing strict water rations. During the summer of 2018 Norway, as well as a lot of europe experienced severe droughts. And a lot of farmers had to start feeding livestock with winter feed as early as {june, july}. So even water rich Norway has seen that we are not immune to the changing climate and the effect that water shortages can have on our domestic supply of agricultural goods.
+Excessive water usage can lead to a whole host of issues, especially in countries that are prone to having long drought seasons. Most recently [spring/winter 2018] the [China/South African] capital has been struck by severe water shortages and are facing strict water rations. During the summer of 2018 Norway, as well as a lot of Europe experienced severe droughts. And a lot of farmers had to start feeding livestock with winter feed as early as {june, july}. So even water rich Norway has seen that we are not immune to the changing climate and the effect that water shortages can have on our domestic supply of agricultural goods.
 \\\\
 This is an example of one of the scenarios that makes water so valuable. The future value of water might be one of the reasons why there has been heavy investing in water and water related industries by some of the leading food and beverage companies in the world.
 
@@ -115,6 +117,9 @@ We chose an exploratory approach where we wanted to gain insight in to what fact
 With this mixed approach of learning by doing and reading about the subject at hand we have become well equiped to talk about the challanges and problems to be solved to improve water management in agriculture. And how iot and clout technologies can help in improving the water usage in this sector.
 
 \section{The possibilities opened by technology}
+
+
+
 This section will cover "IT systems in agriculture"
 
 \section{Research method}
@@ -135,8 +140,6 @@ Setting up the sensor networks is a challenging task as you are doing the work o
 We also read and gathered information about similar systems as well as spending time looking at the state of the art open source and commercial products in this space. It is also important to mention the cloud aspect of this project as it is one of the key cost drivers. We have explored the use of the vendors Microsoft, Amazon and digital ocean. As well as doing a theoretical comparison of the deployment of the system on physical hardware
 \\\\
 A part of the research is looking at the comparable literature and comparing and trying to learn from similar projects. We have been especially interested in research from countries that are more drought prone as this type of system potentially could have a big impact there.
-
-
 
 \section{Central findings}
 \subsection{software}
@@ -176,7 +179,6 @@ It is hard to run this type of board off of battery as there are quite a lot of 
 \subsubsection{Sensors}
 The nodes record data from a digital temperature sensor and an analog soil moisture sensor. The sensors are read by accessing the digital and analog input pins on the NodeMcu board to which the different sensors are connected. The soil moisture sensor measures the soil resistivity. The soil resistivity is the measurement of how much resistivity an electrical signal experiences travelling through the earth. The less resistance, the more moisture there is in the soil. The temperature is measured with a Sensorion SHT11, an integrated circuit which contains a silicon band-gap sensor.
 
-
 \subsubsection{Creating datasets}
 Data visualization is an important step in showing the power of the data that we have gathered in the proof of concept we did. It illustrates that we are able to gather data the gives a good representation of the current state of a plant/patch of land. As you can see from the illustration underneath this type of data is very intuitive as evaporation is something that we are familiar with
 \\\\
@@ -184,19 +186,17 @@ For our proof of concept we used two differnt soil moisture sensors. One is a ve
 \\\\
 The second sensor that we implemented is a humidity sensor paired with a special housing that allows for air to pass through, but not water. This means that as the soil moisture increases the moisture of the air that passes through the sensor. This type of sensor also contains a temperature sensor, which gives us valuable information of the current state of the soil that we are monitoring.
 \\\\
-We did not measure the sensitivity of our sensors, but to get a usable humidity readout we created a span between the readout from 100 percent humidity (sensor submerged in water) and as close to completely dry soil. For the humidity style sensor we got our baseline verification by checking that the sensor was within a few percentage points of the humidity reported by metrologisk institutt outdoor in the area that we where in.
+We did not measure the sensitivity of our sensors, but to get a usable humidity readout we created a span between the readout from 100 percent humidity (sensor submerged in water) and as close to completely dry soil. For the humidity style sensor we got our baseline verification by checking that the sensor was within a few percentage points of the humidity reported by "metrologisk institutt" outdoor in the area that we where in.
 \\\\
 The resistance based sensor is analogue, and it is easy to read the information from the sensor. As it is connected to a pin on the board that is able to read resistance. The humidity sensor is digital and required that a library for communicating with the sensor was loaded on to the microcontroller. This type of open source software is often easy to find online for most types of microcontrollers. This also held true for the microcontroller that we where using (nodemcu). As we found a lua implementation that gave a good read out to establish a baseline for temperature and humidity
 
-
 \section{Simulating WSN}
-Our solution uses a python script to simulate a large wireless sensor network(WSN). The script can simulate a data stream from variable sized WSNs with any network topology. For our solution, we chose to simulate a large WSN where the individual motes communicate directly with the main application. Our simulated WSN was organized into virtual physical areas, each area containing 50 motes. This way we can easily scale the simulation for stress testing by changing the number of areas. It’s important to note that a really accurate simulation of a WSN not possible with a script like this as it can’t emitt all HTML requests simultaneously. However, taking into account the possible differences in the motes like clocking differences we can assume that it will cause a similar load to the the web application as our simulation.
+Our solution uses a python script to simulate a large wireless sensor network(WSN). The script can simulate a data stream from variable sized WSNs with any network topology. For our solution, we chose to simulate a large WSN where the individual motes communicate directly with the main application. Our simulated WSN was organized into virtual physical areas, each area containing 50 motes. This way we can easily scale the simulation for stress testing by changing the number of areas. It’s important to note that a really accurate simulation of a WSN not possible with a script like this as it can’t emit all HTML requests simultaneously. However, taking into account the possible differences in the motes like clocking differences we can assume that it will cause a similar load to the the web application as our simulation.
 \\\\
 Our simulation was used to both simulate normal WSN behaviour and to stress test the web application. For normal behaviour we simulated a WSN with 500 motes, each emitting momentary temperature and moisture data every 30 minutes. For stress testing we had the script constantly emitting data points from all motes. These are some notes on what we experienced:
 \\\\
 Normal WSN behaviour: In normal behaviour 500 motes are emitting momentary temperature and moisture data every 30 minutes. This means the web application has to handle 500 HTML post requests each 30 minutes. The web application had no problems handling this kind of traffic.
-
-
+\\\\
 Stress test:  For stress testing we had the script constantly emitting data points from all motes. The main thing we wanted to confirm with a stress test like this was that the hosting service could handle that much traffic without affecting the performance of the web application. Keep in mind that we used the lowest spec’d virtual machines from one of the cheapest IaaS providers. If this kind of hosting can handle traffic from a large WSN, it will virtually remove the cost of hosting a the web application for a WSN like this. 
 \\\\
 The application had no problems handling the traffic from our stress test. We expected some reduction in the responsiveness, but could not detect any. 
@@ -211,24 +211,28 @@ The MEAN-stack is a combination of technologies that allows developers to create
 \subsubsection{Database}
 For our proof of concept we decided to go with a nosql system. This is different from a regular relational database as the stored files are can handle nested object, instead of using a key relation as in a relational database. This type of system lends itself well to nested objects, as there is a clear relationship and tree like structure to the layout of the data model. Our data model was only concerned with storing the moisture data, and not the kind of administrative data that you might need for this type of system in the real world
 \\\\
-All calculations and data aggregation are done in the browser. We do this to offload the server, as we want the server to only handle the HTML requests. The performance of the browser side application is ok, however the Javascript library used to generate the graphs have a lot of functionality, like animation that are not really necessary for this purpose, which gives a sub optimal rendering time. For this situation, a simpler library would be better, however the point of the web application is not to prove response time of javascript libraries, the purpose is to prove the responsiveness of the server. We also want to point out that using AngularJS as the main frontend framework is not the best fit for this application. For rendering of this kind of frontend components(graphs) React in combination with other libraries would be a better choice. 
+All calculations and data aggregation are done in the browser. We do this to offload the server, as we want the server to only handle the HTML requests. The performance of the browser side application is decent, however the Javascript library used to generate the graphs have a lot of functionality, like animation that are not really necessary for this purpose, which gives a sub optimal rendering time. For this situation, a simpler library would be better, however the point of the web application is not to prove response time of javascript libraries, the purpose is to prove the responsiveness of the server. We also want to point out that using AngularJS as the main front end framework is not the best fit for this application. For rendering of this kind of front end components(graphs) React in combination with other libraries would be a better choice. 
 \subsubsection{hosting/Cloud}
-Cloud is just somebody elses computer. Whether you are paying a dedicated company or running on a shared platform, in essence it is just somebody elses computer. There is not nessceceraly dedicated hardware running for your server, but a vertualized computer. For this proof of concept we have looked at the following vendors: Aws, azure and digitalocean. The two former are the hosting giants Amazon and Microsofts offerings and is what is currently commercially viable for larger companies. And digitalocean is a bare bones offering that is geared more towards the customers who are fine doing their own patching and upgrading. The three platforms also differ a lot in that aws and azure offers a large range of software as a service, and digitalocean only offers infrastructure as a service. We will also compare what offerings the vendors have for api gateways, storage {add more}
+Cloud is just somebody else computer. Whether you are paying a dedicated company or running on a shared platform, in essence it is just somebody elses computer. There is not necessarily dedicated hardware running for your server, but a virtualized computer. For this proof of concept we have looked at the following vendors: Aws, azure and digitalocean. The two former are the hosting giants Amazon and Microsofts offerings and is what is currently commercially viable for larger companies. And digitalocean is a bare bones offering that is geared more towards the customers who are fine doing their own patching and upgrading. The three platforms also differ a lot in that aws and azure offers a large range of software as a service, and digitalocean only offers infrastructure as a service. We will also compare what offerings the vendors have for api gateways, storage {add more}
 \\\\
 We are hosting our application on a Digital Ocean Droplet. Digital Ocean is a cloud infrastructure company that offers affordable cloud services. A Droplet is a virtual machine instance with varying degrees of computing power, storage and networking functionality. We are hosting our application on the cheapest possible option. We use one Droplet with 1GB memory and 25GB storage. This is costing us 5 dollars per month, which is an insignificant expense. 
 \\\\
-Often there is no need for more than a simple server to run this type of application. But we also made an effort to explore alternatives when it comes to cloud hosting. We came at this proof of concept with cost as one of the key constraints that we have kept in mind. As this type of system would need to run at a as low as possible cost so that you could see a return on the effort as fast as possible. Seeing how we can get away with five usd per month, makes it hard to compete for the other providers in our case. But there it is still relevant as we need to take in to account the maintainability and scalability of our solution.
+Often there is no need for more than a simple server to run this type of application. But we also made an effort to explore alternatives when it comes to cloud hosting. We came at this proof of concept with cost as one of the key constraints that we have kept in mind. As this type of system would need to run at a as low as possible cost so that you could see a return on the effort as fast as possible. Seeing how we can get away with five us dollars per month, makes it hard to compete for the other providers in our case. But there it is still relevant as we need to take in to account the maintainability and scalability of our solution.
 
 \section{An Introduction to central themes of research}
-The Future Internet is pushing the world towards a state of ubiquitous computing, connectivity and sensing. The concept of Internet of Things(IoT) plays a big part in this paradigm shift. IoT explains the shift in the hierarchy of the Internet where the number of "thing" entities outnumber the number of human entities and makes humans the minority of generators and receivers of traffic. IoT also calls for an increase in Machine to Machine(M2M) communication. One of the most important technologies of the IoT is Wireless Sensor Networks(WSN). A WSN is ''a network of battery-powered sensors interconnected through wireless medium and is typically deployed to serve a specific application purpose''\cite{Ojha2015662}. To fully benefit from the ubiquitous connectivity of the IoT computation power, storage and networking infrastructure must enter the equation. Cloud Computing offers these capabilities and the utilization IoT in conjunction with Cloud Computing is the direction the Future Internet is pushing. This combination of technologies can be applied in a infinite number scenarios for better monitoring, data collection, analytics, forecasting and decision making. Developments in technology and in the prices of Cloud services means that these technologies are now available to almost any business that can make use of them. Agriculture is an area where the potential is tremendous for these technologies to work together, especially from an economic and environmental stand point. Agriculture is an area which highly relies on the climate in which it operates and must therefor adjust to the shifting nature of that climate. Knowledge of this shifting nature is key for successful agriculture. Environmental monitoring, data collection, analytics, forecasting, automated systems for irrigation or fertilization, plant health monitoring and frost detection are all scenarios that apply for both conventional and urban agriculture where these technologies can supply crucial information for important decision making. In this article we will explore the state of the art of these technologies and how they can be applied in different agricultural scenarios. We start by exploring concepts like Cloud Computing and IoT before move on to specific technologies like WSNs and application level protocols and conclude the text with examples of these technologies' applications in agriculture.
+The Future Internet is pushing the world towards a state of ubiquitous computing, connectivity and sensing. The concept of Internet of Things(IoT) plays a big part in this paradigm shift. IoT explains the shift in the hierarchy of the Internet where the number of "thing" entities outnumber the number of human entities and makes humans the minority of generators and receivers of traffic. IoT also calls for an increase in Machine to Machine(M2M) communication. One of the most important technologies of the IoT is Wireless Sensor Networks(WSN). A WSN is ''a network of battery-powered sensors interconnected through wireless medium and is typically deployed to serve a specific application purpose''\cite{Ojha2015662}. To fully benefit from the ubiquitous connectivity of the IoT computation power, storage and networking infrastructure must enter the equation. Cloud Computing offers these capabilities and the utilization IoT in conjunction with Cloud Computing is the direction the Future Internet is pushing. This combination of technologies can be applied in a infinite number scenarios for better monitoring, data collection, analytics, forecasting and decision making. Developments in technology and in the prices of Cloud services means that these technologies are now available to almost any business that can make use of them. Agriculture is an area where the potential is tremendous for these technologies to work together, especially from an economic and environmental stand point. Agriculture is an area which highly relies on the climate in which it operates and must therefor adjust to the shifting nature of that climate. Knowledge of this shifting nature is key for successful agriculture. Environmental monitoring, data collection, analytic, forecasting, automated systems for irrigation or fertilization, plant health monitoring and frost detection are all scenarios that apply for both conventional and urban agriculture where these technologies can supply crucial information for important decision making. In this article we will explore the state of the art of these technologies and how they can be applied in different agricultural scenarios. We start by exploring concepts like Cloud Computing and IoT before move on to specific technologies like WSNs and application level protocols and conclude the text with examples of these technologies' applications in agriculture.
 
 \section{Is over watering a management or a mechanical problem}
-A major finding of the study is that there is only a weak relationship between irrigation
-system type and the level of excess irrigation water used. In particular, flood irrigation
-systems are not clearly inefficient and management may play a significant role in the levels
-of water use efficiency that can be reached.(Estimation of excess water use in irrigated agriculture:
+
+It is also relevant to provide some context on the common types of irrigation systems that are deployed. These will wary across geographical locations, but it is from a intuitive standpoint fair to assume that irrigation is being done in a similar fashion across the world. I have decided to include the systems discussed in the paper [] as well as describing some of the  other common irrigation methods that we find. The two main differences are: Using rainwater and actual irrigation. \\\\
+Rainwater irrigation is an important part of farming and following the weather has a lot of importance in farming. As an example drought can decimate the yield of a crop. We saw this happen in 2018 with livestock feeds like grass here in Norway. In these situation water management becomes especially challenging as wells and other natural sources of water can get depleted. Rain-fed farming is the natural application of water to the soil through direct rainfall. Relying on rainfall is less likely to result in contamination of food products but is open to water shortages when rainfall is reduced.<- fra https://www.cdc.gov/healthywater/other/agricultural/types.html
+\\\\
+Irrigation systems include but are not limited to surface irrigation, sprinklers, drip irrigation, center pivot irrigation. The main differences for the types of irrigation is the precision of the irrigation, the cost and the labour involved in doing the irrigation activities. Intuitively we would think that there is a high correlation between the type of irrigation used and the amounts of water used. As an example you could think that any irrigation that involves flooding would result in exessive irrigation. But as argued by (Estimation of excess water use in irrigated agriculture: Data Envelopment Analysis approach) A major finding of the study is that there is only a weak relationship between irrigation system type and the level of excess irrigation water used. In particular, flood irrigation <-quote \\\\
+This is interesting to our research case as the implication would be that the resource intensive and costly exercise of changing or replacing the irrigation system used would not automatically result in a reduction in water usage. This in our mind highlights that gaining insight in the actual water amount requirements over time could be very valuable input to the management process of a farm. One of  the challenges highlighted by the paper [] is that the gathering of agricultural data is very costly and inaccessible to a large portion of farmers. Given that this paper is already 10 years old, we would argue that the implementation we have demonstrated as working has brought the price of gathering this type of data by what we assume to be a lot. systems are not clearly inefficient and management may play a significant role in the levels of water use efficiency that can be reached.(Estimation of excess water use in irrigated agriculture:
 A Data Envelopment Analysis approach)
- 
+\\\\
+The conclusion that the management plays a significant role in excessive water usage is especially interesting given that the primary goal of this project is to conclude whether or not a system for collecting and visualising water consumption using wsn and cloud is feasible. This conclusion by [] is a big motivating factor and gives a good foundation to discuss the feasibility and value of a system like the one we will lay out in the implementation and design portion of this text.
+
 \section{Cloud Computing}
 ''Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.''\cite{Mell:2011:SND:2206223} This is the National Institute of Standards and Technology's(NIST) definition of Cloud Computing. NIST further define the concept with five characteristics, three service models, and four deployment models\cite{Mell:2011:SND:2206223}. The five characteristics are:
 \begin{itemize}
@@ -296,6 +300,8 @@ The Advanced Message Queuing Protocol (AMQP) is ''an open standard for passing b
 \\\\
 IoT is still an emerging concept and therefore there are a lot of competing standards trying to solve the same scenario. We see that cloud providers have support for a all of these standards in their IoT platforms.
 
+\subsection{zigbee}
+
 \chapter{Design}
 
 Goal of the design
@@ -345,6 +351,8 @@ There are examples of commercial operators in this space and in this section we 
 \\\\
 "Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which can be used for monitoring the factors that we where able to monitor in our proof of concept. This company utilizes a more generic type of control architecture called SCADA. This type of architecture focuses on the entire production process instead of only the gathering of information like we have focused on in our proof of concept.
 \\\\
+Schneider Scada implementation
+\\\\
 Wildeye is a company that seemingly focus on smaller operations as one of their key selling points is the price of their hardware and software. Their solution looks a lot like what we have outlined in our proposal. They have weather proof sensors which are wired to a central computer which distributes the information wirelessly. This differs from our proposal as you are not running a wireless sensors alone, but in tandem with other sensors. 
 \\\\
 
@@ -380,8 +388,6 @@ The goal of the simulation is to test what kind of hosting service is nessecary.
 \\\\
 The solution is a testement to how minimalistic the application and interface part of this kind of system can be done. We host our application on a very affordable cloud service to insignificant cost and show that this kind of system can easily handle the kind of traffic a WSN produces. Based on datasets we produced in 2017 we can scale the WSN to stress test the web application. We will now talk about the data collection phase and explain our solution in greater detail.
 
-
-
 \chapter{State of the art and refernce projects}
 
 \section{Applications in agriculture}
@@ -400,7 +406,9 @@ F.J. Pierce \textit{et al}. \cite{PIERCE200832} describe ''hardware and software
 P.C.P De Silva \textit{et al}. \cite{7780266} has applied an IoT architecture to water quality control in an aquaponics system. Aquaponics is a soil less growing method in which fertelizer is created from within the system boundaries using fish waste. In this context the food production process is treated as ''a distributed industrial manufacturing process with strategic data acquisition, automated optimal control, and automated process control which is to be implemented in urban and rural areas.''\cite{77802661}. The system is comprised sensor and controlling units denoted as endpoints, an an IoT cluster, a  streaming analytics server and an data analytics server. The system is intended to facilitate for urban agriculture and addresses food security issues for crops produced intensively in limited spaces.  
 
 \section{Off the shelf hardware}
+There are not a lot of off the shelf hardware in so far as ready made packages. Most of the moisture sensors that are commercially available are manual read out sensors that tell you when to monitor. The same sensors that where used for this project is in my experience what comes up when searching for this type of hardware. There are however different types of this sensor that have other capabilities than the ones used in the proof of concept. 
 \section{off the shelf software}
+
 \section{exploring dashboard offerings}
 \subsection{tableu}
 
@@ -446,6 +454,19 @@ Ingestion is a very important component given that it would need to scale when m
 \\\\
  When the data has traveled from the “ground” to the cloud we are dependent on reliable and cost effective storage of the data. Given that a lot of iot devices uses json to communicate with a server a natural choice for storing data is a json based document database like mongodb. This type of database is capable of a lot of read and writes per second. Due to the nature of our application write performance is the most important. One big advantage of cloud based data base systems is that they often do automatic replication over multiple locations something witch is great for data redundancy.
  
+ \section{Site deployment conceptual}
+ \begin{figure}[h]
+\caption{Site deployment}
+\centering
+\includegraphics[width=10cm]{hjemly.png}
+\end{figure}
+
+ Following is a conceptual site deployment for monitoring a grass field of approximately 11ha, which incidentally happens to be the grass field of my farm in Hedmark. The idea is to think of this farm as having to "fields" and both fields being of interest. Why do we want to split these fields? We have observed that the yield is significantly different as one of these fields get a lot more sunlight than the other. It will also be interesting to describe how we theorize the networks requirements over such a spread out area.
+ \\\\
+ Field A is approximately 8ha while field B is approximately 1.5ha. To cover this entire area with wireless signal you will need to set up a network that can hand over connectivity in a seamless manner. We could go many different routes for the configuration. But we theorize that the easiest way to set it up is using repeaters for the signals. We would probably need to run power to some strategic locations in the field. Assuming a modest range of 150m we could in theory cover the field by using two WIFI access points, and with amplification we could cover both fields. Just from this exercise we see that networking could be a hurdle, but we are certain that this would not be a show stopper for gathering data as there are alternate ways of communicating via radio signal that we have not explored.
+ \\\\
+ When looking at the placement of the sensors we would consider the elevation, and the sun conditions in the patch we are deploying the sensors as seeing how much the reading vary would be hugely beneficial as it could tell us a lot about the amount of sensors we would need to deploy to get satisfactory readings. As well as some of the different areas of the field being more prone to retaining water and having different soil qualities. 
+  
 \section{Implementation}
 \section{Hardware implementation}
 The harware implementation was by far the most challanging part of our work and we burned through a lot of time exploring different options for the begining of our work. However it was the interest in exploring sensors and the link between computer software and the real world that sparked the topic of discussion for this project.I will lay out a short timeline on what we tried and then conclude this section with how we ended up setting it up as well as some information on future development that could have been done to create a long lasting sensor package that could be deployed 
@@ -473,9 +494,29 @@ We had two different versions of the main.lua code for reading the moisture of t
 The server we wrote for this implementation was a highly simplified version of what would be needed in a production environment as i was lacking IAM, authentication, logging. We chose Node as it has a good track record when it comes to developing restful apis as well as both project members having good experience with the language. There are also a wealth of cummunity resources and libraries available for the language. The reason we chose to implement it like this is that it is relatively trivial to implement a statless-api which is critical to achieve good horizontal scaling of the edge resources of the proposed data collection platform.
 \section{Software implementation frontend}
 The frontend implementation is all about ease of use, the climate has changed quite a lot since 2016 with react coming out as the dominant framework for front end development. However the arcitechture of this application allows us to quickly change out the front end, so even though the front end implementation is quite outdated today, we could easily re-use the same api calls and javasscript packages used for displaying the data. This is also something we gave a lot of thought during the development of this project and is why we are such big fans of an API approach to development. 
+
+ \begin{figure}[h]
+\caption{Water consumption graph}
+\centering
+\includegraphics[width=12cm]{watergraph.png}
+\end{figure}
+
 \section{Cloud deployment}
 We explored a range of options for cloud, and it is covered extensively in the cost constraint portion of the text. We had multiple iterations of the cloud deployment. The most like a continuous deployment/ continuous integration we came was when we implemented the front-end on azure using azure dev-ops and visual studio team services to create a hook in to our github library. However our actual long running implementation focused around much more manual processes on Digitalocean. We had both the database, server code and front end being served from a ubuntu server. This allowed for a lot of flexibility as well as a very low cost per month (5usd + vat). We did test hosted apps like "meteorDB" and azure web apps, but ultimately found that running our own linux server was easier for a proof of concept project.
+\section{Site deployment}
+ \begin{figure}[h]
+\caption{Site deployment 3. iteration}
+\centering
+\includegraphics[width=10cm]{mcu+sensor.jpg}
+\end{figure}
+
+When we implemented the proof of concept we started off with an outdoor deployment in a greenhouse as the original idea was to also control irrigation using a threshold that would be discovered by the data. Because of this we had additional complonents in the system like a motor controller to run a pump as well as a sonic sensor to monitor the level of our tank. Although this was an interesting execise in itself we quickly relized that although fun, cortrolling the full system would give limited value to our porject. This is because through our research we started to see that the area that was lacking insight was the data on how the watering should be done. We therefore shifted focus away from the sensor housing, running pumps and building out plumbing. And instead decided to scale the project back a bit and focus on an indoor deployment. This made a few things way more simple. We no longer had to worry about water proofing the sensors. It allowed us to abandon the work on making the sensor battery powered. This allowed us to focus more on the tech platform and the architecture of the application which was more in line with the subject of research. 
 \\\\
+It is worth noting that we where able to run the system in the greenhouse for up to five days on battery power, and we started to see some of the challanges that would face the sensors outside in the field. One example of unexpected observation was when we noticed false readings when the sensor got heated by sunlight. This is one of the reasons we decided to purchase one of the more advanced sth11 sensors as this problem would be eliminated by the sensor reading measurements in a different way.
+\\\\
+In our final implementation we had the same type of sensor package deployed to five indoor plants. We collected data for 2-3 months in the fall of 2018 and this data created the grounds for the simulation program that we wrote to stress test the application.
+
+
 \section{WSN notes}
 Wireless Sensor Networks(WSNs) are “a network of battery-powered sensors interconnected through wireless medium and are typically deployed to serve a specific application purpose”[1, p68]. This type of network are applied for a variety of different purposes, including environmental monitoring, machine monitoring, safety management, smart buildings, and for many other purposes. For any application this type of network would be comprised of a variety of sensors, such as temperature, humidity and volatile compound detection.[3] Technological advances have made small, low cost, low power and highly customizable devices commercially available and has improved the viability of large scale sensing networks with a large number of intelligent sensor nodes. A sensor node, nicknamed “mote”, in a WSN typically equipped with one or more sensors, a sensor interface, processing units, transceiver unit and power supply [2]. 
 \\\\
@@ -503,6 +544,18 @@ Summary of main observation, key results and conclusions, limitations of the wor
 \section{Overview of questions answered}
 In this text we have explored the concepts and technologies that make up Cloud Computing and Internet of Things, we have explored in depth the configuration of Wireless Sensor Networks and we have given examples of how these technologies can be applied in agricultural scenarios. We see from these examples that applying the knowledge of agriculturalists is crucial to the success of the efforts and that the knowledge derived from the systems help the users make the right decisions. We want to further explore how to make these technologies more efficient, how they can become more accessible to users and how they can be applied to emerging agricultural techniques like Urban Farming, Hydroponics, Aquaponics and Vertical Farming. Primarily we are interested in implementing this in a norwegian context as we have other challanges emerging with long droughts during summer in recent years and very wet periods during fall. Our intuition tells us that a lot can be done to increase the yield of livestock feed crops like grass. Which has proven highly important in a Norwegian context
 \section{future work}
+Fokuser på videre arbeid, og ikke bland det med arbeidet som alt er gjort
+\\\\
+Something that became appareant throughout the project was that out initial assumptions regarding what factors to monitor where too limited to give  a overall picture of the health of a major farming operation. Something as basic as what depth to put the sensors at can become a  major study in itself and I would have benefitted a lot from research and discovery around this. Although we ded not go to deep in to the plant science part of this project we have learned that there are many factors that contribute to the state of a plant. And we have also learned that there are many factors that impact water retention in soil. Is the soil sandy, is it hard packed, what level of fertalizer is present. Learning more about the different factors, and monitoring how the different variables impact our reading would have been very interesting.
+\\\\
+It is also natural to think that we would want to do more with the platform we have started to develop. A few of the following items come to mind, security, automation of deployment and user and role engineering. These things where not applicable in a proof of concept scenario. But would have been a must if I ever wanted to  launch this system in a production setting.
+\\\\
+Mote software deployment is something I immediately saw huge problems with and the deployment model for software would have been a massive problem in a production setting. We had some ideas on how to improve this, but none that where possible to implement with the architecture that we had chosen for our project. Her I would like to invest more time in to the data transfer protocol and the network topology. I think as an example utilizing edge nodes with wifi and running the rest of the nodes off of radio signals could reduce the points in the system where we would need to change configuration and update software. If we had problems with the http protocol implementation or needed to change or update the code, we could target the edge node as all the connectivity in one node at the edge as a gateway to our server. The goal of this suggested further work would be to achieve a eaven greater separation of concerns, having the motes focus on data gathereing and allow the edge nodes acting as gateways to deal with connectivity, data caching, uploading data. As well as limiting the number of nodes in the network that we need to change if we where to update the software or change the technology of the apis at any point in the future.
+\\\\
+I have alluded to future work regarding data analysis in this text. I definitely believe that there is a lot of room for statistical analysis on the data sets that the sensors generate. This was an area where i would have liked to researched further but due to time constraints it is ending up in future work. My theory is that this data can be fed in to a machine learning model and using factors such as sun hours and weather forecasts we should be able to say something about the rate of consumption and evaporation. Resulting in more accurate and precise irrigation use, thus contributing to reduced water usage and ensuring limitation of excessive irrigation.
+
+\subsection{management of sensors}
+begrensingger i vårt arbeid, hva er mulighetene i annen metoder
 
 \chapter{notes to be incorperated}
 
@@ -546,7 +599,14 @@ Det er mange faktorer som spiller inn når man skal redusere vannbruk i jordbruk
 \\\\
  samsvarende ser de heller ikke noe tydelig forhold blant gårdene som bruker mest vann. Dette kan indikere at det ikke nødvendigvis er noe forhold mellom type vanningssystem og overforbruk av vann.  videre foreslår teksten at det ikke nødvendigvis er  det mekaniske vanning systemet,  men prosessene på en gård som har mest å si.  i bunn og grunn er  løsningsforslaget et verktøy  som skal hjelpe bønder med å ta bedre avgjørelser assistert av sensor data og statistikk. 
 
+\chapter{Glossary}
+API - Application programming interface. In the context of this text we have used api and web api interchangably. In this context they both describe a way of connecting/interfacing with an application or platform
 \\\\
+WSN - Wireless sensor network
+\\\\
+IoT - Internet of things, common catch all word for sensors monitoring or interacting with the real world
+\\\\
+
 
 
 \chapter{Appendix Code}
@@ -578,6 +638,14 @@ dashboard.html shows the tables and information for the water usage
 \section{pageController.js}
 pageController.js contains the controllor for managing the front end
 \lstinputlisting[language=Java]{pageController.js}
+
+\section{mote simulator.py}
+Python mote simulator
+\lstinputlisting[language=Python]{mote_simulator2_0.py}
+
+\section{mote simulator.py v2}
+Python mote simulator
+\lstinputlisting[language=Python]{mote_simulator.py}
 
 https://nodemcu.readthedocs.io/en/master/
 \\\\
