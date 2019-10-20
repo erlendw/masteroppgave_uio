@@ -38,12 +38,8 @@
 \lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
 \begin{document}
 
-
-
-
-
 \title{\includegraphics[scale=0.5]{toppfelt-english.jpg}\\\\
-Using sensors networks and cloud technology to manage water usage in agriculture.
+Using sensor networks and cloud technology to manage water usage in agriculture.
 \\\\
 \large A technology feasibility study}
 \author{Erlend Westbye}
@@ -99,17 +95,23 @@ Groundwater depletion is one of the more severe consequences of overuse of water
 
 \section{Questions to be answered by this text}
 
-\subsection{Is cloud technology mature enough for large scale streaming}
+\subsection{Introduction }
 The biggest cloud vendor in the world was started in 2006. In the last 13 years the rate of innovation in this space has been staggering. This is something we have seen in the time where we researched and wrote this paper. When it comes to streaming large amounts of data we know that there are many vendors that have achieved this and there are many services for gathering, processing and storing large data sets
 \\\\
 Examples of massive data stream systems can be found as an example within the financial space. Where companies like OneTick can offer solutuions that can stream and persist every single trade that takes place on an exchange. This gives a good idea of the big data capabilities that can be implemented in cloud. Cloud vendors provide services like hosted data bases, data streaming platforms and data lakes. Developers are getting used to having immense computing capabilities at their finger tips, and data streaming is one of the things that can be implemented in cloud. We will look in to data consistency accross regions, and challanges related to pricing and speed.
-\subsection{Is agriculture primed for digitization}
+\\\\
 Farming is a part of human evolution and is one of the worlds oldest professions. We where at one point hunter gathererers and as a part of our evolution as a society we learned to domesticate plants and animals. The farming tradition in Norway is rich, and driving through the Norwegian country side shows the large focus we have had on farming as a nation. Farming is an area that contains some incredible innovation on many scientific fronts, we have modified the genes of plants to make them more drought restistant and resistant to pestesides. I would therefore argue that agriculture is an industry where technological innovation is engrained in the activities that farmers take on every day.
 \\\\
 Farming equipment is going smart, although we have not seen a lot of coverage of this in norway, we have seen international media coverege on farmers going so far as hacking their farming equipment. I would therefore argue that agriculture is an industry that would be happy to adopt new technology as we have seen them do many times over.
-
-\subsection{Can IoT and cloud reduce water usage in agriculture}
+\\\\
 This is the central question of what we explored, and we started out with the standpoint that from a intuitive point this is the case. The research paper presented by [vannbruk handler om systemer] gave us a clear overview that in broad strokes water consumption is more of a management problem than a mechanical problem. Some interesting findings of the paper that helped build up our theory is the fact that the age of the farmer had more to say for the water consumption of a farm than the irrigation system suggesting that through "smart" management and digitization of this industry can have a big impact on this industy. Mismanagement of water can lead to a host of problems like we have seen in the introduction, and water management in agriculture is an area we truely believe that information technology can be used for good.
+\subsection{Using sensor networks and cloud technology to manage water usage in agriculture.}
+\begin{itemize}
+  \item Is sensor technology a reasonable way to address exessive irrigation
+  \item Can a system for monitoring water consumprion be implemented with limited resource use
+  \item Can such a system be implemented as a proof of concept
+\end{itemize}
+Keeping these three questions in mind I will try to address and answer all of these questions. From an intuitive standpoint one could think that the answer to all these questions are yes. However I will prove that these things are not just achieveable from a theoretical point of view. But also something that can be implemented.
 
 \subsection{Approach}
 We chose an exploratory approach where we wanted to gain insight in to what factors we could monitor and how we could architect a system that could support farmers in making good water management decisions. We chose the primary strategy of building out a proof of concept ourselves as well as researching the topic through exploring previous work on the subject. We even went to meet with a farmer to talk about monitoring and what factors are of interest to them. As well as meeting with a leading Norwegian manufactoring automation firm to learn about their sensor offerings as well as how they develop their monitoring platform.
@@ -117,9 +119,6 @@ We chose an exploratory approach where we wanted to gain insight in to what fact
 With this mixed approach of learning by doing and reading about the subject at hand we have become well equiped to talk about the challanges and problems to be solved to improve water management in agriculture. And how iot and clout technologies can help in improving the water usage in this sector.
 
 \section{The possibilities opened by technology}
-
-
-
 This section will cover "IT systems in agriculture"
 
 \section{Research method}
@@ -343,18 +342,23 @@ Ultimately the goal of this type of system would be to identify a relationship b
 
 
 \section{Off the shelf hardware and software}
-In the world of computer hardware and software we tend to see leapfrogging in technology which yields great results. One such revolution has happened within sensors and sensor networks, is the high availability of general purpose, small computers like the raspberry pi or the arduino. As well as the falling price of fit to purpose sensors like the humidity sensors we have utilized in our proof of concept. This enables researchers and entrepenours to rapidly prototype and test hypothesis with harware that used to cost hundreds of thousands for a fraction of the cost. This has fueled a plethora of easily configurable software and hardware. And spawned a sub culture of what we call precision farming enthusiasts online. 
+In the world of computer hardware and software we tend to see leapfrogging in technology which yields great results. One such revolution has happened within sensors and sensor networks, is the high availability of general purpose, small computers like the raspberry pi or the Arduino. As well as the falling price of fit to purpose sensors like the humidity sensors we have utilized in our proof of concept. This enables researchers and entrepreneurs to rapidly prototype and test hypothesis with hardware that used to cost hundreds of thousands for a fraction of the cost. This has fueled a plethora of easily configurable software and hardware. And spawned a sub culture of what we call precision farming enthusiasts online. 
 \\\\
 When it comes to the commercial side of this type of technology, this market seem to have gotten a lot more mature recently. And there is a lot of content about this type of technology as well as commercial implementations of similar technology.
 \\\\
 There are examples of commercial operators in this space and in this section we will have a look at some of the operators in this space
 \\\\
-"Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which can be used for monitoring the factors that we where able to monitor in our proof of concept. This company utilizes a more generic type of control architecture called SCADA. This type of architecture focuses on the entire production process instead of only the gathering of information like we have focused on in our proof of concept.
-\\\\
-Schneider Scada implementation
-\\\\
-Wildeye is a company that seemingly focus on smaller operations as one of their key selling points is the price of their hardware and software. Their solution looks a lot like what we have outlined in our proposal. They have weather proof sensors which are wired to a central computer which distributes the information wirelessly. This differs from our proposal as you are not running a wireless sensors alone, but in tandem with other sensors. 
-\\\\
+\subsection{Inmtn}
+"Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which can be used for monitoring the factors that we where able to monitor in our proof of concept. This company utilizes a more generic type of control architecture called SCADA. This type of architecture focuses on the entire production process instead of only the gathering of information like we have focused on in our proof of concept. [add source]
+
+\subsection{Schneider}
+Another more well known company that offers products and solutions similar to inmtn is Schneider electric. They have also built out a suit of tools for monitoring in agricultural applications. Schneider offers products that have taken the systems discussed in this text to a production level. As an example they offer hardware that integrates with existing controls for irrigation systems. They also offer systems for soil moisture monitoring that monitors a lot of the same variables discussed in this text. Interestingly they have opted for buring the sensors at multiple depths, and are also utilizing cloud services in the operation of their platform. Per nov 2019 you can see a demo at https://scadafarm.azurewebsites.net/home . 
+
+\subsection{Wildeye}
+Wildeye is a company that seemingly focus on smaller operations as one of their key selling points is the price of their hardware and software. Their solution looks a lot like what we have outlined in our proposal. They have weather proof sensors which are wired to a central computer which distributes the information wirelessly. This differs from our proposal as you are not running a wireless sensors alone, but in tandem with other sensors. [add source]
+
+\subsection{Bosch}
+Bosch also features smart agriculture as a part of their website. It seems that this company is to a greater extent in proof of concept mode, given that they already create advanced tools it is safe to say that they will probably launch more tools in this space.
 
 \section{read write challanges (bandwith)}
 
@@ -423,11 +427,17 @@ It is clear in my mind that excess water usage has negative externalities and co
 There is a discrepancy in the availability of internet connectivity in the developed and the developing world. And although this is improving over time with adoption of 4g/5g and investment in internet and communication infrastructure. This is one of the major hurdles that could face implementation of a WSN system in certain regions of the world. And unfortunately the areas that are especially drought prone can also have other challenges on the infrastructure side. The solution we have presented assumes a certain level of development within telecommunications and internet infrastructure that is not available through the entire world.
 \section{Cost of hardware}
 Make a table including the components we used and the price
+include a model of the components
 
 \section{Cost of hosting}
 The cost of hosting is very interesting at it is highly linked to the size of the wsn that is being deployed
 
-
+\section{Deployment context}
+I have mentioned that there is a difference between a proof of concept project and a deployment context. What I mean by this is that the costs i can talk about are the once that I gained experience with during the implementation phase of this project. What we saw is that the cost of our system grew in a linear fashion for the motes. And in a tiered manner for the server costs, this is highly dependent on what cloud provider you choose but the following would be true for all of them. The important first step is to establish a baseline consumption of computing power. In the case of the proof of concept implementation, I chose the cheapest server available and that proved sufficient for the full implementation. Normally one would scale up by adding more machines to the pool of workers in the application. When you run on dedicated servers you would see that there is not a linear relationship between the amount of motes and the cost of hosting. Normally we would hit a threshold for capacity and then provision more hardware based on the increased need.
+\\\\
+If I had used a service from one of the major cloud providers for API management and databases the cost picture would have behaved completely differently as there is a high chance that the number of requests and amount of data stored would have more to say for the cost of operations of the system.
+\\\\
+If we where to deploy this in a production setting you would be looking at a lot of other cost drivers which are not accounted for in this project. But from a host perspective it would probably look mostly the same. I envision that it would be benefitial to leverage more hosted services as ususally the bigger cost driver would be paying the engineers that are creating the application, which was not a factor in my implementation. At that point it would make sense to take a serious look at the differnt hosting models for cloud.
 
 \chapter{Implementation and evaluation, An overview of a proposed implementation}
 
@@ -541,8 +551,26 @@ This is why we have concluded that we would like to keep tcp; it is relieable, a
 
 Summary of main observation, key results and conclusions, limitations of the work, suggestions for future work
 
-\section{Overview of questions answered}
 In this text we have explored the concepts and technologies that make up Cloud Computing and Internet of Things, we have explored in depth the configuration of Wireless Sensor Networks and we have given examples of how these technologies can be applied in agricultural scenarios. We see from these examples that applying the knowledge of agriculturalists is crucial to the success of the efforts and that the knowledge derived from the systems help the users make the right decisions. We want to further explore how to make these technologies more efficient, how they can become more accessible to users and how they can be applied to emerging agricultural techniques like Urban Farming, Hydroponics, Aquaponics and Vertical Farming. Primarily we are interested in implementing this in a norwegian context as we have other challanges emerging with long droughts during summer in recent years and very wet periods during fall. Our intuition tells us that a lot can be done to increase the yield of livestock feed crops like grass. Which has proven highly important in a Norwegian context
+
+
+\section{ Is sensor technology a reasonable way to address excessive irrigation}
+
+Through this project this has been the central question that I set out to answer. We have looked at what excessive irrigation is, and some of the problems that can come along with excessive use of water. First we defined excessive irrigation as a management problem and not a mechanical problem with the help of the article [sett inn]. With this knowledge we looked at the changes in ease in collecting the important data that can use in getting excessive irrigation under control. My conclusion is that sensor technology undoubtedly be a good tool in the arsenal of a farmer who is concerned about water use, both from a profit and environmental perspective. I have also proved that sensor networks can be implemented and used for collecting data that used to be very hard and expensive to come by.
+
+\section{ Can a system for monitoring water consumption be implemented with limited resource use}
+
+In the context of this text we focus on resources defined as time and money. The work that was done in the proof of concept was to prove that the goal of monitoring water consumption can be done by developers with limited professional experience and knowledge about sensors and electrical engineering. Although there is a lot of trial and error involved in developing any product or software my conclusion is that this type of system can be implemented within a reasonable budget, and that building a full scale version of this system is something a small team could be able to do. Both from the ground up, like I did, or by leveraging some of the services described in this text.
+
+\section{ Can such a system be implemented as a proof of concept}
+
+Through this text and the wider project I have proved that a proof of concept version of the system can be implemented by one to two people using commodity hardware, open source software packages and cheap cloud solutions. I have also proved that it can be deployed, and that on can clearly see the water consumption in a plant. See fig 7.1 for hour by hour consumption example
+ \begin{figure}[h]
+\caption{Water consumption hour by hour}
+\centering
+\includegraphics[width=14cm]{warter_hourbyhour.png}
+\end{figure}
+
 \section{future work}
 Fokuser på videre arbeid, og ikke bland det med arbeidet som alt er gjort
 \\\\
