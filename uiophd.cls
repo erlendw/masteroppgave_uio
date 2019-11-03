@@ -49,7 +49,7 @@
          \vspace{5em}
       Master Thesis, Programming and Networks
       \\\\
-      60 cr
+      60 credits
       \\\\
       Department of Informatics 
       \\\\
