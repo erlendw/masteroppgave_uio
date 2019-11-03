@@ -9,6 +9,8 @@
 \graphicspath{ {./} }
 \usepackage{helvet}
 \usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage[
 backend=biber,
@@ -217,7 +219,7 @@ Rainwater irrigation is an important part of farming and following the weather h
 \\\\
 Irrigation systems include but are not limited to surface irrigation, sprinklers, drip irrigation, center pivot irrigation. The main differences for the types of irrigation is the precision of the irrigation, the cost and the labour involved in doing the irrigation activities. Intuitively one could think that there is a high correlation between the type of irrigation used and the amounts of water used. As an example you could think that any irrigation that involves flooding would result in excessive irrigation. But as argued by Estimation of excess water use in irrigated agriculture: Data Envelopment Analysis approach, A major finding of the study is that there is only a weak relationship between irrigation system type and the level of excess irrigation water used. In particular, flood irrigation \cite{LILIENFELD200773}
 \\\\
-This is interesting to the research case as the implication would be that the resource intensive and costly exercise of changing or replacing the irrigation system used would not automatically result in a reduction in water usage. This highlights that gaining insight in the actual water amount requirements over time could be very valuable input to the management process of a farm. One of  the challenges highlighted by the paper [] is that the gathering of agricultural data is very costly and inaccessible to a large portion of farmers. Given that this paper is already 10 years old, the working implementation shows that the price of gathering this data no longer has a high cost relative to the price of doing mechanical upgrades to an irrigation system. Systems are not clearly inefficient and management may play a significant role in the levels of water use efficiency that can be reached. \cite{LILIENFELD200773}
+This is interesting to the research case as the implication would be that the resource intensive and costly exercise of changing or replacing the irrigation system used would not automatically result in a reduction in water usage. This highlights that gaining insight in the actual water amount requirements over time could be very valuable input to the management process of a farm. One of  the challenges highlighted by the paper \cite{LILIENFELD200773} is that the gathering of agricultural data is very costly and inaccessible to a large portion of farmers. Given that this paper is already 10 years old, the working implementation shows that the price of gathering this data no longer has a high cost relative to the price of doing mechanical upgrades to an irrigation system. Systems are not clearly inefficient and management may play a significant role in the levels of water use efficiency that can be reached. \cite{LILIENFELD200773}
 \\\\
 The conclusion that the management plays a significant role in excessive water usage is especially interesting given that one of the primary goals of this thesis is to conclude whether or not a system for collecting and visualising water consumption using WSN and cloud is feasible. This conclusion by Amy Lilien-feld and Mette Asmild is a big motivating factor and gives a good foundation to discuss the feasibility and value of a system for visualizing the soil moisture and exposing the moisture data in a simple way.
 
@@ -294,8 +296,8 @@ IoT is still an emerging concept and therefore there are many standards trying t
 \subsection{zigbee}
 It is relevant to look at zigbee because it could have been a good choise for implementing a fog network where the sensor packages where radio based and where communicationg to the internet through an edge node in the network.
 
-\section{Relationshi between the NodeMCU development board and ESP8266}
-The NodeMCU is a microcontroller unit that implements the espriff esp8266 wifi enabled chip on an open source configuration. A standalone esp8266 can be purchased. Then the user of the board would have to supply the other necessary components such as a usb to serial bus, gpio pins etc. The NodeMCU gives an end user a pre-made board which contains the components necessary to do development without the need for soldering. Esp8266 and NodeMCU are used interchangeably through in the description of the sensor packages.
+\section{Relationship between the NodeMCU development board and ESP8266}
+The NodeMCU is a micro controller unit that implements the espriff esp8266 wifi enabled chip on an open source configuration. A standalone esp8266 can be purchased. Then the user of the board would have to supply the other necessary components such as a USB to serial bus, gpio pins etc. The NodeMCU gives an end user a pre-made board which contains the components necessary to do development without the need for soldering. Esp8266 and NodeMCU are used interchangeably through in the description of the sensor packages.
 
 \chapter{Technology considerations}
 
@@ -333,13 +335,15 @@ A key consideration is ensuring that the data is of high quality and that the sy
 
 \chapter{State of the art and reference projects}
 
+
+Approaching technology in agriculture it would be possible to look at a range of different subjects. Examples could be food sience, engineering innovations et. For this thesis what is most relevant to look at is technology applied to agriculture in the sense of information technology. Below there has been compiled a list of refrence projects relating to the research of this thesis that have been helpful in gauging the to what extent systems of similar characteristics have been implemented before. In addition to this the section also looks at some cutting edge commerical solutions and systems that share some charavteristics with the proof of concept implementation.
+
 \section{Technology applications in agriculture}
-TODO INTRO!!
 
 \subsection{Automated Irrigation System}
 J. Gutiérrez \textit{et al}. \cite{6582678} has developed an automated irrigation system using a WSN comprised of soil-moisture and temperature sensors placed in the root zone of the plants. The systems consists of senor units, gateway nodes, the irrigation mechanisms and a web server hosting a web application. The sensor units communicated with the gateway nodes using ZigBee and the gateway nodes transmitted the data to the web server through a GPRS module via the public mobile network. The sensor units was powered by both battery power and solar power and contained the two sensors, a microcontroller unit and a ZigBee transmission unit. The gateway nodes contained a ZigBee module, a microcontroller and a GPRS module. The gateway nodes received, identified, recorded and analyzed the sensor data as well as controlling the pumps in the irrigation system.
 \\\\
-The motivation for the system was to optimize water use for agricultural crops in water scarce environments. During the 136 day test in a sage crop field the ??? showed ''water savings of up to 90\% compared with traditional irrigation practices of the agricultural zone''\cite{6582678174}. J. Gutiérrez \textit{et al}. argues that ''the modular configuration of the automated irrigation system allows it to be scaled up for larger greenhouses or open fields''\cite{6582678166} and that the system is ''feasible and cost effective for optimizing water resources for agricultural production.''\cite{6582678174}. Figure \ref{AIS1} depicts the proposed architecture.
+The motivation for the system was to optimize water use for agricultural crops in water scarce environments. During the 136 day test in a sage crop field ''water savings of up to 90\% compared with traditional irrigation practices of the agricultural zone''\cite{6582678174} was shown. J. Gutiérrez \textit{et al}. argues that ''the modular configuration of the automated irrigation system allows it to be scaled up for larger greenhouses or open fields''\cite{6582678166} and that the system is ''feasible and cost effective for optimizing water resources for agricultural production.''\cite{6582678174}.
 
 \subsection{Vineyards}
 J. Burrell \textit{et al}.\cite{1269130} focuses on how the agricultural workforce should play a role in the shaping of WSNs. The goal is to develop a WSN for use in a vineyard. The author has a human-centric research approach and use ''ethnographic methods including interviews, site tours, and observational work to broadly understand the work activities and priorities of the various roles working in a vineyard''\cite{126913038}.
@@ -360,6 +364,8 @@ There are examples of commercial operators in this space and in this section we 
 \\\\
 There is not that many off the shelf hardware in so far as ready made packages  found during the research for this thesis. Most of the moisture sensors that are commercially available are manual read out sensors that tell you when to monitor. The same sensors that where used for this proof of concept is in my experience what comes up when searching for  of hardware. There are however different types of this sensor that have other capabilities than the ones used in the proof of concept. These are very generic, so I have not been able to find a spec sheet for the sensor. But it is hard to gain insight in to how they work compared to as an example the sensorion sht11 sensor\cite{sensorion} where you can read the full spec of how the sensor works without being a customer of the company. In comparison the sensor offerings from Bosch and Schneider there is no concrete technical data easily available to the general public. I acknowledge that these companies produce hardware for a different customer segment. At the same time it makes it hard to do a objective comparison of the sensors mentioned in this thesis and the commercial offerings from these companies.
 
+\section{Commercial actors and products}
+
 \subsection{Inmtn}
 "Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which is used for monitoring the factors that this proof of concept was able to monitor. This company utilizes a more generic type of control architecture called SCADA.  of architecture focuses on the entire production process instead of only the gathering of information like this thesis is focused on for the proof of concept implementation. \cite{Inmntn}
 
@@ -367,26 +373,19 @@ There is not that many off the shelf hardware in so far as ready made packages  
 Another more well known company that offers products and solutions similar to inmtn is Schneider electric. They have also built out a suit of tools for monitoring in agricultural applications. Schneider offers products that have taken the systems discussed in this thesis to a production level. As an example they offer hardware that integrates with existing controls for irrigation systems. They also offer systems for soil moisture monitoring that monitors some of the same variables discussed in this thesis. Interestingly they have opted for burying the sensors at multiple depths, and are also utilizing cloud services in the operation of their platform. Per November 2019 you can see a demo at https://scadafarm.azurewebsites.net/home . 
 
 \subsection{Wildeye}
-Wildeye is a company that seemingly focus on smaller operations as one of their key selling points is the price of their hardware and software. Their solution looks similar what is outlined in the system implementation proposal. They have weather proof sensors which are wired to a central computer which distributes the information wordlessly. This differs from the proposal as you are not running a wireless sensors alone, but in tandem with other sensors. [add source]
+Wildeye is a company that seemingly focus on smaller operations as one of their key selling points is the price of their hardware and software. Their solution looks similar what is outlined in the system implementation proposal. They have weather proof sensors which are wired to a central computer which distributes the information wordlessly. This differs from the proposal as you are not running a wireless sensors alone, but in tandem with other sensors. \cite{wildeye}
 
 \subsection{Bosch}
-Bosch also features smart agriculture as a part of their website. It seems that this company is to a greater extent in proof of concept mode, given that they already create advanced tools it is safe to say that they will probably launch more tools in this space.
+Bosch also features smart agriculture as a part of their website. It seems that this company is to a greater extent in proof of concept mode, given that they already create advanced tools it is safe to say that they will probably launch more tools in this space.\cite{Bosch}
 
 
-\section{off the shelf software}
-The off the shelf softeare in this category can be split in to two specific product segments IoT platforms and dashboard products.
+\section{Commercial actors software}
 
 \subsection{tableu}
-One example of a tool that allows you to view aggregate data and build dashboards is Tebleu. This software allows for connectivity to different data sources like csv, sql, ssas, odata and more. This is a very useful tool for generating views for data and is widely used within reporting in the financial sector. In this scenario one could imagine that a service that could be offered to farmers is creating dashboard views and reports using Tableu and  this type of software could accelerate the insight gained from the data gathered from the sensor network. One massive drawback to this product is that the licence is more that \$ 800 per year as it is heavily geared towards enterprise users.
+One example of a tool that allows you to view aggregate data and build dashboards is Tebleu. This software allows for connectivity to different data sources like csv, sql, ssas, odata and more. This is a very useful tool for generating views for data and is widely used within reporting in the financial sector. In this scenario one could imagine that a service that could be offered to farmers is creating dashboard views and reports using Tableu and  this type of software could accelerate the insight gained from the data gathered from the sensor network. One massive drawback to this product is that the licence is more that \$ 800 per year as it is heavily geared towards enterprise users.\cite{tableu}
 
 \subsection{veracity}
-Veracity is another example, but this is a platforms that crosses the gap of iot and dashboard and BI tool. This is a platform developed by Det norske veritas and is used for a range of industrial applications. Although agriculture is not one of the use cases mentioned on their website. This platform also has an active community that creates third party applications that can be leveraged to accelerate the insight and analysis process. 
-
-\subsection{IoT hub}
-
-\subsection{Powerbi}
-
-\subsection{Konsberg}
+Veracity is another example, but this is a platforms that crosses the gap of iot and dashboard and BI tool. This is a platform developed by Det norske veritas and is used for a range of industrial applications. Although agriculture is not one of the use cases mentioned on their website. This platform also has an active community that creates third party applications that can be leveraged to accelerate the insight and analysis process. \cite{veracity}
 
 \chapter{Cost constraints}
 
@@ -421,14 +420,22 @@ Price examples from alibaba per nov 19
 Depending on the version of the sensor that is chosen one can see that the impact to the price of the sensor package greatly. The information from the generic sensor that measures Resistance in the soul is interesting enough to warrant building a package containing just that sensor. My total cost where similar for a portion of the packages that where built later in the project as  more of the components where ordered online. In the initial part of the project the components where purchased through a Norwegian retailer at approximately 3x the price. In the end the listed prices based on the retailer Alibaba gives a more realistic picture of what the cost of implementing one sensor package would be. All in the deployed sensor packages where built for 5.75 \$ with a battery and approximately 2.75 \$ without a battery. Which was incidental the configuration deployed for the proof of concept.
 
 
-\begin{figure}[h]
-\caption{Nodemcu and Nodemcu schematic}%
+\begin{figure}
 \centering
-    \subfloat[Nodemcu]{{\includegraphics[width=6cm]{nodemcu.jpg} }}%
-    \qquad
-    \subfloat[Nodemcu schamatic]{{\includegraphics[width=6cm]{nodemcu_schematic.png} }}%
-    
-    \label{fig:example}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{nodemcu.jpg}
+  \caption{Nodemcu}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{nodemcu_schematic.png}
+  \caption{Nodemcu schematic}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Draft and real world version of the sensor package}
+\label{fig:test}
 \end{figure}
 
 \section{Cost of hosting}
@@ -541,9 +548,7 @@ Ingestion is a very important component given that it would need to scale when m
  When looking at the placement of the sensors I would consider the elevation, and the sun conditions in the patch the sensors are being deployed, seeing how much the reading vary would be hugely beneficial as it could tell a lot about the amount of sensors I would need to deploy to get satisfactory readings. As well as some of the different areas of the field being more prone to retaining water and having different soil qualities. 
  
 \chapter{Solution for monitoring soil moisture}
-The proposed solution consists of a simulated Wireless Sensor Network(WSN), a real life small scale WSN and a cloud hosted web application. The simulated WSN is a representation of a general network of sensor nodes measuring soil data in an urban agricultural setting. The simulated WSN is based on data from a real life small scale WSN implemented. This real life WSN consisted of nodes based on the NodeMcu development board which collected soil data from the houseplants. The data was stored on a web server and later used to create datasets for the simulation. The WSN was active and collected data for several months. 
-\\\\
-The goal of the simulation is to test what kind of hosting service is nessecary.
+The proposed solution consists of a simulated Wireless Sensor Network(WSN), a real life small scale WSN and a cloud hosted web application. The simulated WSN is a representation of a general network of sensor nodes measuring soil data in an urban agricultural setting. The simulated WSN is based on data from a real life small scale WSN implemented. This real life WSN consisted of nodes based on the NodeMcu development board which collected soil data from the houseplants. The data was stored on a web server and later used to create datasets for the simulation. The WSN was active and collected data for several months. The goal of the simulation is to test what kind of hosting service is nessecary.
 \\\\
 The solution is a testament to how minimalistic the application and interface part of systems with similar characteristics could be done. The application is hosted on an affordable cloud service. This shows that this system can easily handle the traffic a WSN of this size produces. Based on datasets produced in 2017 the simulation can scale the WSN to stress test the web application.
 
@@ -732,14 +737,8 @@ Python mote simulator
 \section{mote simulator.py v2}
 Python mote simulator
 \lstinputlisting[language=Python]{mote_simulator.py}
-
-https://nodemcu.readthedocs.io/en/master/
 \\\\
 \textbf{SYN, SYN-ACK, ACK}
 \\\\
 Christoffer Gard Osen was my partner on this project for more than two years, but decided to leave UiO at the end of 2018. Without him I would have felt very lost through this project and would like to extend a big thanks and acknowledgment for all the good conversations, discussion and collaboration.
-
-
-
-https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131422
 \end{document}
