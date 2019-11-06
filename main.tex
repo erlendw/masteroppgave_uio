@@ -53,7 +53,7 @@ sorting=tny
 \begin{document}
 
 \title{\includegraphics[scale=0.5]{toppfelt-english.jpg}\\\\
-Using sensor networks and cloud technology to manage water usage in agriculture.
+Using sensor networks and cloud technology to capture and visualize soil moisture data.
 \\\\
 \large A technology feasibility study}
 \author{Erlend Westbye}
@@ -61,9 +61,10 @@ Using sensor networks and cloud technology to manage water usage in agriculture.
 
 \frontmatter
 \maketitle
+
 Abstract
 \\\\
-This thesis describes building a small scale wireless sensor network implemented using commodity hardware and open source software. The sensors monitor soil moisture and temperature and distributes the data to an application programming interface running in a cloud environment. The goal of the implementation is to answer whether this system is a feasible way to monitor and reduce excess irrigation in agriculture. The system collects, stores and visualizes data and can support high throughput of data. The research describes both the system design and the implementation in detail. As well as describing how the modern information paradigm cloud-computing can aid in the development and deployment of the system described in this thesis. The evaluation describes how the implemented system is a feasible way to address excess irrigation, and describes water management in agriculture as an information and management problem above all else. Through implementing a proof of concept system for monitoring soil moisture, the thesis will demonstrate how technology can be used as an integral part of monitoring and improving excess irrigation.
+This thesis describes building a small scale wireless sensor network implemented using commodity hardware and open source software. The sensor network captures soil moisture and temperature data, and distributes the data to an application programming interface running in a cloud environment. The goal of the implementation is to answer whether this system is a feasible way to reduce excess irrigation in agriculture. The system collects, stores and visualizes data and can support high throughput of data. The research describes both the system design and the implementation in detail. As well as describing how the modern information paradigm cloud-computing can aid in the development and deployment of the system described in this thesis. The evaluation describes how the implemented system is a feasible way to address excess irrigation, and describes water management in agriculture as an information and management problem above all else. Through implementing a proof of concept system for monitoring soil moisture, the thesis will demonstrate how technology can be used as an integral part of monitoring and improving excess irrigation.
 
 \begin{figure}[h]
 \caption{Hjemly farm Osen, Hedmark}
@@ -105,7 +106,6 @@ The biggest cloud vendor AWS in the world was started in 2006 \cite{Gartner}. In
 Examples of massive data stream systems are found as an example within the financial space. Where companies like OneTick can offer solutions that can stream and persist every single trade that takes place on an exchange  \cite{OneTick}. This gives a good idea of the big data capabilities that are implemented in cloud. Cloud vendors provide services like hosted data bases, data streaming platforms and data lakes. Developers are getting used to having immense computing capabilities at their finger tips, and data streaming is one of the things that could be implemented in cloud.  
 \section{Technology adoption in farming}
 The farming tradition in Norway is rich, and driving through the Norwegian country side shows the large focus we have had on farming as a nation. Farming is an area that contains some incredible innovation on many scientific fronts, we have modified the genes of plants to make them more drought resistant and resistant to pesticides. It can therefore be argued that agriculture is an industry where technological innovation is ingrained in the activities that farmers take on every day. We also see that farming equipment is going smart. We have seen international media coverage on farmers going so far as hacking their farming equipment \cite{motherboard}. Agriculture is an industry that has needed to adopt new technology and it can therefore be argued that this is an industry that is eager to take on new technology and primed for digitization.
-\\\\
 
 \section{Using sensor networks and cloud technology to manage water usage in agriculture.}
 
@@ -117,7 +117,7 @@ The scope of this thesis is to answer the three questions listed below, in an ef
 \begin{itemize}
   \item Is sensor technology a reasonable way to address excessive irrigation
   \item Can a system for monitoring soil moisture be implemented with limited resource use
-  \item Is is practically possible to implement a system for monitoring soil moisture 
+  \item Is it practically possible to implement a system for monitoring soil moisture 
 \end{itemize}
 Keeping these three questions in mind this thesis will address and answer all of these questions. From an intuitive standpoint one could think that the answer to all these questions are yes. However this thesis show that these things are not just achievable from a theoretical point of view. But also something that can be implemented.
 
@@ -477,7 +477,7 @@ Early on I had a clear vision on how to build a system that scales well when the
 A load-balancer would be responsible for unifying all of the stateless apis and exposing them as a single DNS address. As an example, a website like example.com points to a single machine/ip. The same address could point to a load balancing server/service that divides the load between a number of the stateless API. A load balancer typically works on a algorithm to assign requests to any of the APIs in the system. A common example of this type of algorithm is round robin. This would be a good strategy for handling load increases as more and more instances of the stateless APIs can be added to the load balancers list of available workers.
 
 \section{API design}
-For this system an API first approach was used. In an API first approach is is important to think about the resources that is needed in the API. As an example, the API design is approached by breaking down the model of the objects that would need to be contained within the system as this quickly can give a good impression of the resources that the system will need to create, read, update and delete. 
+For this system an API first approach was used. In an API first approach it is important to think about the resources that is needed in the API. As an example, the API design is approached by breaking down the model of the objects that would need to be contained within the system as this quickly can give a good impression of the resources that the system will need to create, read, update and delete. 
 \\\\
 Generally web-API design has a clear segregation between resources by implementing controllers that have very specific jobs. This is a design pattern that lends it self to document based storage solutions as the objects and resources that are accessible through the API, are typically similar to the schema of the database. A good api design will lay  the foundation for meeting the reqirement of the system being able to handle a large amount of data from a sensor network. Web APIs are built to handle a large number of concurrent requests at random intervals, such as retrieving data for displaying products or news to users. This is valuable as the requirement for the system is to handle a large amount of concurrent requests. To ensure that any request can be processed regardless of data arrival order, the design of the API is stateless. A general observation is that this is easy to achieve when the API is responsible for creating entries and these entries are timestamped. This allows me to offload the ordering of the data to the client, and ensures that each request will be self contained.
 
@@ -525,8 +525,8 @@ Ingestion is an important component given that it would need to scale when more 
  \\\\
  When looking at the placement of the sensors I would consider the elevation, and the sun conditions in the patch the sensors are being deployed, seeing how much the reading vary would be hugely beneficial as it could tell a lot about the amount of sensors I would need to deploy to get satisfactory readings. As well as some of the different areas of the field being more prone to retaining water and having different soil qualities. 
  
-\chapter{Solution for monitoring soil moisture}
-The proposed solution consists of a simulated Wireless Sensor Network(WSN), a real life small scale WSN and a cloud hosted web application. The simulated WSN is a representation of a general network of sensor nodes measuring soil data in an urban agricultural setting. The simulated WSN is based on data from a real life small scale WSN implemented. This real life WSN consisted of nodes based on the NodeMcu development board which collected soil data from the houseplants. The data was stored on a web server and later used to create datasets for the simulation. The WSN was active and collected data for several months. The goal of the simulation is to test what kind of hosting service is nessecary.
+\chapter{Proof of concept for monitoring soil moisture}
+The proof of concept consists of a simulated Wireless Sensor Network(WSN), a real life small scale WSN and a cloud hosted web application. The simulated WSN is a representation of a general network of sensor nodes measuring soil data in an urban agricultural setting. The simulated WSN is based on data from a real life small scale WSN implemented. This real life WSN consisted of nodes based on the NodeMcu development board which collected soil data from the houseplants. The data was stored on a web server and later used to create datasets for the simulation. The WSN was active and collected data for several months. The goal of the simulation is to test what kind of hosting service is nessecary.
 \\\\
 The solution is a testament to how minimalistic the application and interface part of systems with similar characteristics could be done. The application is hosted on an affordable cloud service. This shows that this system can easily handle the traffic a WSN of this size produces. Based on datasets produced in 2017 the simulation can scale the WSN to stress test the web application.
 
@@ -573,11 +573,11 @@ The application is hosted on a Digital Ocean Droplet. A droplet is a virtual mac
 Often there is no need for more than a simple server to run this type of application. I also made an effort to explore alternatives when it comes to cloud hosting. We came at this proof of concept with cost as one of the key constraints that I have kept in mind. As this type of system would need to run at a as low as possible cost so that you could see a return on the effort as fast as possible. Seeing how we can get away with five us dollars per month, makes it hard to compete for the other providers in our case. However it is still relevant as I need to take in to account the maintainability and scalability of our solution.
 
 \section{Simulating WSN}
-The solution uses a python script to simulate a large wireless sensor network(WSN). The script can simulate a data stream from variable sized WSNs with any network topology. For the solution, a large WSN was simulated, where the individual motes communicate directly with the main application. The simulated WSN was organized into virtual physical areas, each area containing 50 motes. This way the system can easily scale the simulation for stress testing by changing the number of areas. It’s important to note that a really accurate simulation of a WSN not possible with a script like this as it can’t emit all HTTP requests simultaneously. However, taking into account the possible differences in the motes like clocking differences it can be assumed that it will cause a similar load to the the web application as the simulation.
+The solution uses a python script to simulate a large wireless sensor network(WSN). The script can simulate a data stream from variable sized WSNs with any network topology. For the solution, a large WSN was simulated, where the individual motes communicate directly with the main application. The simulated WSN was organized into virtual physical areas, each area containing 50 motes. This way the system can easily scale the simulation for stress testing by changing the number of areas. It’s important to note that a really accurate simulation of a WSN not possible with a script like this as it can not emit all HTTP requests simultaneously. However, taking into account the possible differences in the motes like clocking differences it can be assumed that it will cause a similar load to the the web application as the simulation.
 \\\\
 The simulation was used to both simulate normal WSN behaviour and to stress test the web application. For normal behaviour the system simulated a WSN with 500 motes, each emitting momentary temperature and moisture data every 30 minutes. For stress testing the system had the script constantly emitting data points from all motes. These are some notes on what was experienced:
 \\\\
-Normal WSN behaviour: In normal behaviour 500 motes are emitting momentary temperature and moisture data every 30 minutes. This means the web application has to handle 500 HTTO post requests each 30 minutes. The web application had no problems handling this kind of traffic.
+Normal WSN behaviour: In normal behaviour 500 motes are emitting momentary temperature and moisture data every 30 minutes. This means the web application has to handle 500 HTTP post requests each 30 minutes. The web application had no problems handling this kind of traffic.
 \\\\
 Stress test:  For stress testing the script constantly emitted data points from all motes. The main thing to confirm with a stress test was that the hosting service could handle that much traffic, without affecting the performance of the web application. Keep in mind that the system used the lowest spec’d virtual machines from one of the cheapest IaaS providers. If this kind of hosting can handle traffic from a large WSN, it will virtually remove the cost of hosting a the web application for a WSN like this. The application had no problems handling the traffic from the stress test.
 
@@ -597,17 +597,17 @@ Ultimately some mistakes where made in getting too focused on the hardware porti
 \section{Software implementation sensor packages}
 Before you can start developing on the nodemcu firmware of the esp8266 there are a number of requirements that needs to be met.
 \subsection{Building the firmware}
-The team that maintains the nodemcu firmware also develops tools for flashing the firmware to the esp8266. This tool is downloaded and used with ease from both widows and unix based systems. (windows was used for this POC) They also offer cloud builders that will include the packages that you will need for developing the desired functionality. This is through an intuitive UI and they will acrually email you a finished binary version of the firmware which you can in turn flash on to the chip. All of these offerings are well documented and well maintained.
+The team that maintains the nodemcu firmware also develops tools for flashing the firmware to the esp8266. This tool is downloaded and used with ease from both widows and unix based systems (windows was used for this POC). They also offer cloud builders that will include the packages that you will need for developing the desired functionality. This is through an intuitive UI and they will acrually email you a finished binary version of the firmware which you can in turn flash on to the chip. All of these offerings are well documented and well maintained.
 \subsection{Building the software}
-When the firmware is loaded, you can communicate with the Nodemcu via usb as the all in one implementaion of the esp8266 used has a usb to serial chip. There is a IDE you can use to send code to the board to be executed live, or you can upload files. This is similar to an interactive terminal like a developer would be used to in something like python. The system was primarily developed by using the IDE for prototyping and then implementing the same code as a file to be run by the init.lua file. (see reference in appendix)
+When the firmware is loaded, you can communicate with the Nodemcu via USB as the all in one implementaion of the esp8266 used has a USB to serial chip. There is a IDE you can use to send code to the board to be executed live, or you can upload files. This is similar to an interactive terminal like a developer would be used to in something like python. The system was primarily developed by using the IDE for prototyping and then implementing the same code as a file to be run by the init.lua file. (see reference in appendix)
 \subsection{WIFI}
 One of the drawbacks of this style of development is that you would physically have to flash the motes when something in the system changes. As an example if the name or password of a WIFI connection where to change the motes would have to be flashed again. This is why in a production implementation a dedicated WIFI network dedicated to this sensor network is preferable. The code for connecting to the WIFI is one of the steps the system will retry without putting the sensor to sleep, as this is vital for communicating the data point of the sensor.
 \subsection{Reading data}
 The system had two different versions of the main.lua code for reading the moisture of the sensor. One for the initial sensor that the system used (resistance based) where the built in functions for reading the resistance of the adc pin of the GPIO of the nodemcu board was used. And the second implementation leveraged the sht11 library (see reference in appendix). It was found that both of these read methods worked consistently.
 \section{Software implementation server}
-The server for this implementation was a highly simplified version of what would be needed in a production environment as the system was lacking IAM, authentication, logging. Node was chosen as the programming language as it has a good track record when it comes to developing restful APIs as well as having good experience with the language. There are also a wealth of cummunity resources and libraries available for the language. The reason to implement it like this is that it is relatively trivial to implement a statless-api, which is critical to achieve good horizontal scaling of the edge resources of the proposed data collection platform.
+The server for this implementation was a highly simplified version of what would be needed in a production environment as the system was lacking identity and access management, authentication, logging. Node was chosen as the programming language as it has a good track record when it comes to developing restful APIs as well as having good experience with the language. There are also a wealth of cummunity resources and libraries available for the language. The reason to implement it like this is that it is relatively trivial to implement a statless-api, which is critical to achieve good horizontal scaling of the edge resources of the proposed data collection platform.
 \section{Software implementation front-end}
-The frontend implementation is all about ease of use, the climate has changed quite a lot since 2016 with react coming out as the dominant framework for front end development. However the arcitechture of this application allows for changing out the front end, so even though the front end implementation is quite outdated today, an alternate front end framework could re-use the same api calls and javasscript packages used for displaying the data. This is also something that was given a lot of thought during the development of this proof of concept and is why an API first approach was found to be so beneficial. 
+The frontend implementation is all about ease of use, the popularity of frameworks has changed quite a lot since 2016 with the front end framework React coming out as the dominant framework for front end development. However the arcitechture of this application allows for changing out the front end, so even though the front end implementation is quite outdated today, an alternate front end framework could re-use the same api calls and javasscript packages used for displaying the data. This is also something that was given a lot of thought during the development of this proof of concept and is why an API first approach was found to be so beneficial. 
 
  \begin{figure}[h]
 \caption{Soil moisture graph}
@@ -616,7 +616,7 @@ The frontend implementation is all about ease of use, the climate has changed qu
 \end{figure}
 
 \section{Cloud deployment of software}
-A range of options for cloud where looked at, and it is covered in the cost constraint portion of the thesis. The system had multiple iterations of the cloud deployment. The closest to a continuous deployment/ continuous integration the system came to was when an implementation of the front-end was auto deployed to Azure using Azure dev-ops and visual studio team services to create a hook in to the github library used for the project. However the actual long running implementation focused around much more manual processes on Digitalocean. The system had the database, server code and front end being served from a Ubuntu server. This allowed for flexibility as well as a low cost per month (5usd + vat). Hosted applications like "meteorDB" and Azure web apps where also tested, but ultimately found that running a Linux server was easier for a proof of concept project.
+A range of options for cloud where looked at, and it is covered in the cost constraint portion of the thesis. The system had multiple iterations of the cloud deployment. The closest to a continuous deployment/continuous integration the system came to was when an implementation of the front-end was auto deployed to Azure using Azure dev-ops and visual studio team services to create a hook in to the github library used for the project. However the actual long running implementation focused around much more manual processes on Digitalocean. The system had the database, server code and front end being served from a Ubuntu server. This allowed for flexibility as well as a low cost per month (5usd + vat). Hosted applications like "meteorDB" and Azure web apps where also tested, but ultimately found that running a Linux server was easier for a proof of concept project.
 
 \section{On premise deployment of software}
 Deployment on premise is also a good option if an area has limited coverage of internet connectivity. In fact the initial version of the proof of concept ran on an on premise deployment on my personal computer. This was also an easy and manageable way of setting up the hosting. However you are responsible for more of the deployment stack yourself. Ensuring proper networking and firewall settings is more challenging than with a cloud deployment, and normally you are not leveraging pre-built images with the necessary development tools. Although it is not necessarily more expensive to host this proof of concept on premise, it does have a higher up front cost as you would need to own hardware with sufficient resources to run the proof of concept.
@@ -628,7 +628,7 @@ Deployment on premise is also a good option if an area has limited coverage of i
 \includegraphics[width=10cm]{mcu+sensor.jpg}
 \end{figure}
 
-When I implemented the proof of concept I started off with an outdoor deployment in a greenhouse as the original idea was to also control irrigation using a threshold that would be discovered by the data. Because of this I had additional components in the system like a motor controller to run a pump as well as a sonic sensor to monitor the level of the tank. Although this was an interesting exercise in itself I quickly realized that although fun, controlling the full system would give limited value to the project. I shifted focus away from the sensor housing, running pumps and building out plumbing. And instead decided to scale the project back a bit and focus on an indoor deployment. This made a few things way more simple. I no longer had to worry about water proofing the sensors. It allowed me to abandon the work on making the sensor battery powered. This allowed me to focus more on the tech platform and the architecture of the application which was more in line with the subject of research. 
+When I implemented the proof of concept I started off with an outdoor deployment in a greenhouse as the original idea was to also control irrigation using a threshold that would be discovered by the data. Because of this I had additional components in the system like a motor controller to run a pump as well as a sonic sensor to monitor the level of the tank. Although this was an interesting exercise in itself I quickly realized that although fun, controlling the full system would give limited value to the project.
 \\\\
 It is worth noting that I was able to run the system in the greenhouse for up to five days on battery power, and I started to see some of the challanges that would face the sensors outside in the field. One example of unexpected observation was when I noticed false readings when the sensor got heated by sunlight. This is one of the reasons I decided to purchase one of the more advanced sth11 sensors as this problem would be eliminated by the sensor reading measurements in a different way.
 \\\\
@@ -636,6 +636,33 @@ In the final implementation the same type of sensor package was deployed to five
 \\\\
 \section{Closing remarks on implementation}
 The questions introduced in this thesis could have been answered from a theoretical point of view. However the implementation of the system outlined has will be of great help in answering the questions in the conclusion of this thesis. Implementing the system helped in showing how machines can be programmed to interact with the physical world. And helped in verifying the functional and non functional requirements set for the system, as well as testing the design theories put forth in chapter 6. 
+
+\chapter{Experiments and evaluation of the proof of concept}
+
+\section{API testing}
+\subsection{description}
+\subsection{learning outcomes}
+\section{Outdoor deployment}
+\subsection{description}
+\subsection{learning outcomes}
+\section{Indoor deployment}
+\subsection{description}
+\subsection{learning outcomes}
+\section{Simulation}
+\subsection{description}
+\subsection{learning outcomes}
+
+\\\\
+
+\section{ Can such a system be implemented as a proof of concept}
+
+Through this thesis it has been shown that a proof of concept version of the system can be implemented by one to two people using commodity hardware, open source software packages and cheap cloud solutions. The thesis has outlined and explained that it can be deployed, and that one can clearly see the soil moisture levels. See fig 7.1 for hour by hour consumption example
+ \begin{figure}[h]
+\caption{Soil moisture hour by hour}
+\centering
+\includegraphics[width=14cm]{warter_hourbyhour.png}
+\end{figure}
+
 
 \chapter{Conclusions and future work}
 
@@ -664,15 +691,6 @@ My conclusion is that sensor technology undoubtedly be a good tool in the arsena
 \section{ Can a system for monitoring water consumption be implemented with limited resource use}
 
 In the context of this thesis the focus is on resources defined as time and money. The work that was done in the proof of concept was to show that the goal of monitoring water consumption can be done by developers with limited professional experience and knowledge about sensors and electrical engineering. Although there is a lot of trial and error involved in developing any product or software my conclusion is that this type of system can be implemented within a reasonable budget, and that building a full scale version of this system is something a small team could be able to do. Both from the ground up, or by leveraging some of the services described in this thesis.
-
-\section{ Can such a system be implemented as a proof of concept}
-
-Through this thesis it has been shown that a proof of concept version of the system can be implemented by one to two people using commodity hardware, open source software packages and cheap cloud solutions. The thesis has outlined and explained that it can be deployed, and that one can clearly see the soil moisture levels. See fig 7.1 for hour by hour consumption example
- \begin{figure}[h]
-\caption{Soil moisture hour by hour}
-\centering
-\includegraphics[width=14cm]{warter_hourbyhour.png}
-\end{figure}
 
 \section{future work}
 Something that became appareant throughout the project was that my initial assumptions regarding what factors to monitor where too limited to give  a overall picture of the health of a major farming operation. Something as basic as what depth to put the sensors at can become a  major study in itself and it would have benefitted from research and discovery around this. Although the thesis did not go to deep in to the plant science of water monitoring, we have learned that there are many factors that contribute to the state of a plant. And we have also learned that there are many factors that impact water retention in soil. Is the soil sandy, is it hard packed, what level of fertilizer is present. Learning more about the different factors, and monitoring how the different variables impact the reading would have been interesting.
