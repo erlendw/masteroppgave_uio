@@ -1,0 +1,3 @@
+{"_id":{"$oid":"59b8f5b2598801622e000152"},"time":{"$date":"2017-09-13T09:09:06.226Z"},"soilTemperature":"19.51","soilMoisture":"79.280821917808","chipcode":"14790735","__v":0}
+{"_id":{"$oid":"59b8fc5f598801622e000153"},"time":{"$date":"2017-09-13T09:37:35.945Z"},"soilTemperature":"20.18","soilMoisture":"97.08904109589","chipcode":"14790735","__v":0}
+{"_id":{"$oid":"59b90312598801622e000154"},"time":{"$date":"2017-09-13T10:06:10.451Z"},"soilTemperature":"20.6","soilMoisture":"95.034246575342","chipcode":"14790735","__v":0}
