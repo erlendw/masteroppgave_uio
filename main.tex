@@ -209,7 +209,7 @@ The 4 deployment models are:
 \item \textbf{Hybrid} Here a mix of private and public cloud is used. This is a common approach as it offers great flexibility. And is widely used as companies still have a lot of capital invested in hardware.
 \end{itemize}
 \\\\
-One of the key technologies that has made the modern cloud possible is virtualization \cite{virt}. Computer virtualization refers to practice of running operating systems on virtual hardware. This is achieved by splitting the resources of physical hardware between different instances of operating systems. This is done by installing software known as a hypervisor on the hardware instead of an operating system like Linux on a computer. The hypervisor allows for operating systems to be installed on top of the hypervisor, so that one machine or pool of resources can run many operating systems at the same time \cite{1430631}.
+One of the key technologies that has made the modern cloud possible is virtualization \cite{virt}. Computer virtualization refers to practice of running operating systems on virtual hardware. This is achieved by splitting the resources of physical hardware between different instances of operating systems. This is done by installing software known as a hyper-visor on the hardware instead of an operating system like Linux on a computer. The hyper-visor allows for operating systems to be installed on top of the hyper-visor, so that one machine or pool of resources can run many operating systems at the same time \cite{1430631}.
 
 
 \section{Internet of Things}
@@ -222,7 +222,7 @@ Wireless Sensor Networks (WSNs) are ''a network of battery-powered sensors inter
 \\\\
 For many years the trend in WSN topology has been a network comprised of several motes and one or several gateway nodes. In this type of network the motes communicate with each other and the gateway node using a radio frequency communication technology like ZigBee or Bluetooth. The gateway node can have several functions including computation and Internet connectivity. The motes in this type of network can not communicate with the Internet directly and relies on the gateway nodes for this, making the network a closed or proprietary system with limited communication to the external world. 
 \\\\
-Current trends are pushing WSNs in the direction of the Internet of Things (IoT) using the Internet Protocol (IP) to connect every mote to the Internet \cite{6064380}. Connecting individual motes to the Internet using WiFi enables the utilization of IoT platforms and other resources in Cloud services. In some cases applying a gateway based architecture to a IP-enabled, WiFi interconnected WSN can be the natural choice, especially if the gateway node(s) are able to perform challenging computing tasks. This architecture applies the concepts of Fog Computing.
+Current trends are pushing WSNs in the direction of the Internet of Things (IoT) using the Internet Protocol (IP) to connect every mote to the Internet \cite{6064380}. Connecting individual motes to the Internet using WiFi enables the utilization of IoT platforms and other resources in Cloud services. In some cases applying a gateway based architecture to a IP-enabled, WiFi interconnected WSN can be the natural choice, especially if the gateway node(s) are able to perform challenging computing tasks.
 \\\\
 Fog Computing brings the resources near the underlying network \cite{6984239}. Compared to the Cloud paradigm's centralized computing, storage and networking resources Fog Computing pushes these resources closer to the edge of the network, closer to the user. For a system that demand both low latency and extensive computation, a Fog architecture would be a natural choice. In context of WSNs this means utilizing a Smart Gateway \cite{6984239}. As explained in \cite{69842392} a Smart Gateway should be ''collecting the data and performing pre-processing, filtering the data and reconstructing it into more useful form, uploading only necessary data to the cloud, keeping check on IoT objects and sensors’ activities, keeping check on energy consumption of power constrained nodes of IoTs, security and privacy of the data, and overall service monitoring and management''. 
 
@@ -271,7 +271,7 @@ For the purposes of this thesis it is important to keep in mind some of the key 
 
 Any system that is processing large amounts of data will need to be able to process these data as they arrive. In the proof of concept there are five motes sending out data every 15-30 minutes. But it is still important to keep in mind how the web-API design can be efficient at scale. As an example, if the web-API is not able to handle a high amount of concurrent requests the system could deploy multiple copies of the web-API behind a load balancing mechanism to achieve good horizontal scaling.
 \\\\
-A wireless sensor network also have major read write challenges transmitting the data. Should the WSN motes transmit directly to the internet, or would it be more beneficial to group data in an edge node and transmit larger chunks of data. These are important things to consider as the ability to replay events and resiliency in the network is important to give a clear picture of the soil moisture in the monitored area. This will be covered more in the architecture and future work portions of the thesis.
+A wireless sensor network also have major read write challenges transmitting the data. Should the WSN motes transmit directly to the internet, or would it be more beneficial to group data in an edge node and transmit larger chunks of data. These are important things to consider as the ability to replay events and resiliency in the network is important to give a clear picture of the soil moisture in the monitored area.
 
 \section{Data stream management}
 There are a number of things to consider when looking at the streaming that is configured for this system. The main question one needs to answer when setting up a stream management system is whether or not you want to run queries on the live stream. In this proof of concept does not implement analytics, notifications and real time visualization. If this was to be implemented, the system would need the ability to query the stream. One suggested approach is to use the offerings from the big cloud vendors. IoT gateway can feed data to a stream analysis service in Azure and allows for real time querying of the data before it hits the database.
@@ -299,8 +299,6 @@ This chapter aims to examine reference projects that share characteristics with 
 \section{Technology applications in agriculture}
 Approaching technology in agriculture it would be possible to look at a range of different subjects. Examples could be food sience, engineering innovations etc. For this thesis what is most relevant to look at is technology applied to agriculture in the sense of information technology. Below there has been compiled a list of refrence projects relating to the research of this thesis that have been helpful in gauging the to what extent systems of similar characteristics have been implemented before. In addition to this the section also looks at some cutting edge commerical solutions and systems that share some charavteristics with the proof of concept implementation.
 
-
-
 \subsection{Automated Irrigation System}
 J. Gutiérrez \textit{et al}. \cite{6582678} has developed an automated irrigation system using a WSN comprised of soil-moisture and temperature sensors placed in the root zone of the plants. The systems consists of senor units, gateway nodes, the irrigation mechanisms and a web server hosting a web application. The sensor units communicated with the gateway nodes using ZigBee and the gateway nodes transmitted the data to the web server through a GPRS module via the public mobile network. The sensor units was powered by both battery power and solar power and contained the two sensors, a microcontroller unit and a ZigBee transmission unit. The gateway nodes contained a ZigBee module, a microcontroller and a GPRS module. The gateway nodes received, identified, recorded and analyzed the sensor data as well as controlling the pumps in the irrigation system.
 \\\\
@@ -317,7 +315,7 @@ F.J. Pierce \textit{et al}. \cite{PIERCE200832} describe ''hardware and software
 \subsection{Aquaponics}
 P.C.P De Silva \textit{et al}. \cite{7780266} has applied an IoT architecture to water quality control in an aquaponics system. Aquaponics is a soil less growing method in which fertelizer is created from within the system boundaries using fish waste. In this context the food production process is treated as ''a distributed industrial manufacturing process with strategic data acquisition, automated optimal control, and automated process control which is to be implemented in urban and rural areas.''\cite{77802661}. The system is comprised sensor and controlling units denoted as endpoints, an an IoT cluster, a  streaming analytics server and an data analytics server. The system is intended to facilitate for urban agriculture and addresses food security issues for crops produced intensively in limited spaces.  
 
-\section{summary}
+\subsection{summary}
 As can be seen from this related work there are multiple methods and designs for monitoring different faucets of agriculture. And we can also see that similar implementations have been done. These implementation have a higher focus on automation, and monitoring. This work has been helpful in setting a scope for what has been achieved by others, and helped in forming the conclusions of this thesis. Especially in answering the question of whether a system with these characteristics is a feasible way to monitor and reduce water usage in agriculture. The goal is to expand on the concepts presented here by presenting both a generic design and a specific implementation as well as discussing the cost of hosting systems like this to a larger extent than what was done in the reference projects.
 
 
@@ -333,7 +331,7 @@ There are not many off the shelf hardware in so far as ready made packages  foun
 \section{Commercial actors and products}
 
 \subsection{Inmtn}
-"Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which is used for monitoring the factors that this proof of concept was able to monitor. This company utilizes a more generic type of control architecture called SCADA.  SCADA architecture focuses on the entire production process instead of only the gathering of information like this thesis is focused on for the proof of concept implementation \cite{Inmntn}.
+"Inmtn" is an industrial company focusing on among other things irrigation control. They have industrial scale solutions which is used for monitoring the factors that this proof of concept was able to monitor. This company utilizes a more generic type of control architecture called SCADA.  SCADA architecture focuses on the entire production process instead of only the gathering of information like this thesis is focused on for the proof of concept implementation \cite{inmtn}.
 
 \subsection{Schneider}
 Another more well known company that offers products and solutions similar to inmtn is Schneider electric. They have also built out a suit of tools for monitoring in agricultural applications. Schneider offers products that have taken the systems discussed in this thesis to a production level. As an example they offer hardware that integrates with existing controls for irrigation systems. They also offer systems for soil moisture monitoring that monitors some of the same variables discussed in this thesis. Interestingly they have opted for burying the sensors at multiple depths, and are also utilizing cloud services in the operation of their platform. Per November 2019 you can see a demo at https://scadafarm.azurewebsites.net/home \cite{Schneider}. 
@@ -346,7 +344,7 @@ Bosch also features smart agriculture as a part of their website. It seems that 
 
 
 \section{Commercial actors software}
-
+These commerical actors have been chosen because they are platforms I have had exposure to through my professional work, and the fact that they are impactful examles of dashboarding and data collection software.
 \subsection{tableu}
 One example of a tool that allows you to view aggregate data and build dashboards is Tebleu. This software allows for connectivity to different data sources like csv, sql, ssas, odata and more. This is a useful tool for generating views for data and is widely used within reporting in the financial sector. In this scenario one could imagine that a service that could be offered to farmers is creating dashboard views and reports using Tableu and  this type of software could accelerate the insight gained from the data gathered from the sensor network. One massive drawback to this product is that the licence is more that \$ 800 per year as it is heavily geared towards enterprise users \cite{tableu}.
 
@@ -365,7 +363,7 @@ It is clear that excess water usage has negative externalities and costs to soci
 There is a discrepancy in the availability of internet connectivity in the developed and the developing world. And although this is improving over time with adoption of 4G/5G and investment in internet and communication infrastructure. This is a major hurdle that could face the implementation of a WSN system in certain regions of the world. And unfortunately the areas that are especially drought prone can also have other challenges on the infrastructure side. The solution presented assumes a certain level of development within telecommunications and internet infrastructure that is not available through the entire world.
 \section{Cost of hardware}
 
-Price examples from alibaba per nov 19
+Price examples from Alibaba (e-commerce platform) per November 2019
 
 \begin{center}
  \begin{tabular}{||c | c| c ||} 
@@ -383,7 +381,7 @@ Price examples from alibaba per nov 19
 \end{tabular}
 \end{center}
 \\\\
-Depending on the version of the sensor that is chosen one can see that the impact to the price of the sensor package greatly. The information from the generic sensor that measures Resistance in the soul is interesting enough to warrant building a package containing just that sensor. The total cost where similar for a portion of the packages that where built later in the project as  more of the components where ordered online. In the initial part of the project the components where purchased through a Norwegian retailer at approximately 3x the price. In the end the listed prices based on the retailer Alibaba gives a more realistic picture of what the cost of implementing one sensor package would be. All in the deployed sensor packages where built for 5.75 \$ with a battery and approximately 2.75 \$ without a battery. Which was incidental the configuration deployed for the proof of concept.
+Depending on the version of the sensor that is chosen one can see that the impact to the price of the sensor package greatly. The information from the generic sensor that measures Resistance in the soul is interesting enough to warrant building a package containing just that sensor. The total cost where similar for a portion of the packages that where built later in the project as  more of the components where ordered online. In the initial part of the project the components where purchased through a Norwegian retailer at approximately 3x the price. In the end the listed prices based on the retailer Alibaba gives a more realistic picture of what the cost of implementing one sensor package would be. All in the deployed sensor packages where built for \$ 5.75 with a battery and approximately \$ 2.75 without a battery. Which was incidental the configuration deployed for the proof of concept.
 
 
 \begin{figure}
@@ -693,7 +691,8 @@ In the context of this thesis the focus is on resources defined as time and mone
 \chapter{Closing reflections and future work}
 
 This chapter aims to add closing remarks to the implementation and thesis work. It also includes further work that is relevant for improving the system and increasing the impact of the system implementation.
-\\\\
+
+\section{Summary}
 In this thesis we have explored the concepts and technologies that make up Cloud Computing and Internet of Things, we have explored in depth the configuration of Wireless Sensor Networks, and examples of how these technologies could be applied in agricultural scenarios to monitor soil moisture. We see from these examples that applying the knowledge of agriculturalists is crucial to the success of the efforts and that the knowledge derived from the systems help the users make the right decisions. It could be relevant to further explore how to make these technologies more efficient, how they can become more accessible to users and how they can be applied to emerging agricultural techniques like Urban Farming, Hydroponics, Aquaponics and Vertical Farming. Primarily the area of interest is to implement this system in a Norwegian context as we have challenges emerging with long droughts during summer in recent years and very wet periods during fall. My intuition tells me that a lot can be done to increase the yield of livestock feed crops like grass. Which has proven highly important in a Norwegian context.
 \\\\
 In the end it became clear that the value of the data collected was limited, but in so far as answering the question of whether or not this system is feasible it helped build the conclusion. The value came primarily from the visualization platform that was built as a part of the reference implementation of this system. This yielded a clear picture of the state of the monitored plants, and gave clear insight that could potentially help with watering in a large scale agricultural operation of similar characteristics.
