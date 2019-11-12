@@ -84,7 +84,7 @@ In this chapter follows a review of motivation both from a technical, environmen
 \section{Why is high water usage a problem}
 Many are like me and turn on the shower without giving much thought to the amazing innovation that has gone in to getting the water running through the pipes in to my apartment. But I got to admit, I think less about the water it self. Especially in a country like Norway where water is abundant, and there is no significant visible cost attached to turning on the shower as both water and electricity are cheap here.
 \\\\
-Although we rarely think about it water is a finite resource. Non frozen Fresh water makes up 0.76 \% of the world's water supply \cite{WaterinCrisis}. This number really sets the amount of available water in perspective. I will not be arguing whether the commodification of water is the worst thing that can happen to modern society, whether the free market knows what is right for the world, or how much of a toll agriculture is taking on the atmosphere of the earth. This thesis will look at the feasibility of using modern technology to reduce water usage through improved information availability in one of the most water intensive industries; Agriculture  \cite{WorldBank}.
+Although we rarely think about it water is a finite resource. Non frozen Fresh water makes up 0.76 \% of the world's water supply \cite[p.~13]{WaterinCrisis}. This number really sets the amount of available water in perspective. I will not be arguing whether the commodification of water is the worst thing that can happen to modern society, whether the free market knows what is right for the world, or how much of a toll agriculture is taking on the atmosphere of the earth. This thesis will look at the feasibility of using modern technology to reduce water usage through improved information availability in one of the most water intensive industries; Agriculture  \cite{WorldBank}.
 \\\\
 Water is high on the agenda. The United Nations has a list of sustainable development goals, where water is one of the items on the list \cite{un}. The OECD has also put forth water as one of the important things to put on the agenda. In a 2018 note they also mentioned the gathering of information as one of the important steps in improving the situation 
 \\\\
@@ -200,14 +200,6 @@ There are a multitude of different service models, but some of the prominent one
 \item \textbf{Platform as a Service(PaaS)} A platform for application deployment giving the user the ability to deploy applications created using programming languages, libraries, services, and tools supported by the provider.
 \item \textbf{Software as a Service(SaaS)} A software provided to the customer running on the vendors infrastructure. The application should be available from various devices.
 \end{itemize}
-
-The 4 deployment models are:
-\begin{itemize}
-\item \textbf{Public} This is a cloud that is operated by a trusted third party that handles all of the infrastructure and networking for the user. This means that all of the hardware is managed by the trusted third party.
-\item \textbf{Private} This is a cloud that is hosted on hardware owned by a company or individual. Here the user would have full control of the hardware. Cloud does not imply that the servers are hosted off site, but these type of clouds are typically hosted in private data centers.  
-\item \textbf{Community} A Cloud exclusive for a specific community of consumers. This can be organizations with shared concerns. It can be hosted by any of the organizations or a third party. 
-\item \textbf{Hybrid} Here a mix of private and public cloud is used. This is a common approach as it offers great flexibility. And is widely used as companies still have a lot of capital invested in hardware.
-\end{itemize}
 \\\\
 One of the key technologies that has made the modern cloud possible is virtualization \cite{virt}. Computer virtualization refers to practice of running operating systems on virtual hardware. This is achieved by splitting the resources of physical hardware between different instances of operating systems. This is done by installing software known as a hyper-visor on the hardware instead of an operating system like Linux on a computer. The hyper-visor allows for operating systems to be installed on top of the hyper-visor, so that one machine or pool of resources can run many operating systems at the same time \cite{1430631}.
 
@@ -218,13 +210,13 @@ IoT is the concept of connecting “things” to the Internet to gather data and
 The high volume and low time to market of many IoT products has presented a range of challenges like privacy and network security. There has already been large scale issues with connected appliances. The hacking of the connected light bulb Phillips "Hue" \cite{6997469}. Despite these concerns the number of IoT devices is rapidly increasing \cite{ericsson}.
 
 \section{Wireless Sensor Networks}
-Wireless Sensor Networks (WSNs) are ''a network of battery-powered sensors interconnected through wireless medium and are typically deployed to serve a specific application purpose'' \cite{Ojha2015662}. Technological advances have made small, low cost, low power and highly customizable devices commercially available and has improved the viability of large scale sensing networks with a large number of intelligent sensor nodes. A sensor node, nicknamed “mote”, in a WSN typically equipped with one or more sensors, a sensor interface, processing units, transceiver unit and power supply \cite{Gubbi20131645}.
+Wireless Sensor Networks (WSNs) are ''a network of battery-powered sensors interconnected through wireless medium and are typically deployed to serve a specific application purpose'' \cite[p.~68]{Ojha2015662}. Technological advances have made small, low cost, low power and highly customizable devices commercially available and has improved the viability of large scale sensing networks with a large number of intelligent sensor nodes. A sensor node, nicknamed “mote”, in a WSN typically equipped with one or more sensors, a sensor interface, processing units, transceiver unit and power supply \cite{Gubbi20131645}.
 \\\\
 For many years the trend in WSN topology has been a network comprised of several motes and one or several gateway nodes. In this type of network the motes communicate with each other and the gateway node using a radio frequency communication technology like ZigBee or Bluetooth. The gateway node can have several functions including computation and Internet connectivity. The motes in this type of network can not communicate with the Internet directly and relies on the gateway nodes for this, making the network a closed or proprietary system with limited communication to the external world. 
 \\\\
 Current trends are pushing WSNs in the direction of the Internet of Things (IoT) using the Internet Protocol (IP) to connect every mote to the Internet \cite{6064380}. Connecting individual motes to the Internet using WiFi enables the utilization of IoT platforms and other resources in Cloud services. In some cases applying a gateway based architecture to a IP-enabled, WiFi interconnected WSN can be the natural choice, especially if the gateway node(s) are able to perform challenging computing tasks.
 \\\\
-Fog Computing brings the resources near the underlying network \cite{6984239}. Compared to the Cloud paradigm's centralized computing, storage and networking resources Fog Computing pushes these resources closer to the edge of the network, closer to the user. For a system that demand both low latency and extensive computation, a Fog architecture would be a natural choice. In context of WSNs this means utilizing a Smart Gateway \cite{6984239}. As explained in \cite{69842392} a Smart Gateway should be ''collecting the data and performing pre-processing, filtering the data and reconstructing it into more useful form, uploading only necessary data to the cloud, keeping check on IoT objects and sensors’ activities, keeping check on energy consumption of power constrained nodes of IoTs, security and privacy of the data, and overall service monitoring and management''. 
+Fog Computing brings the resources near the underlying network \cite{Fog}. Compared to the Cloud paradigm's centralized computing, storage and networking resources Fog Computing pushes these resources closer to the edge of the network, closer to the user. For a system that demand both low latency and extensive computation, a Fog architecture would be a natural choice. In context of WSNs this means utilizing a Smart Gateway \cite{Fog}. 
 
 \section{The role of IoT and Cloud in modern information technology}
 The Future Internet is pushing the world towards a state of ubiquitous computing, connectivity and sensing. The concept of Internet of Things(IoT) plays a big part in this paradigm shift. IoT explains the shift in the hierarchy of the Internet where the number of "thing" entities outnumber the number of human entities and makes humans the minority of generators and receivers of traffic. IoT also calls for an increase in Machine to Machine communication (M2M). One of the most important technologies of the IoT is Wireless Sensor Networks (WSN). A WSN is ''a network of battery-powered sensors interconnected through wireless medium and is typically deployed to serve a specific application purpose''\cite{Ojha2015662}. To fully benefit from the ubiquitous connectivity of the IoT computation power, storage and networking infrastructure must enter the equation. Cloud Computing offers these capabilities and the utilization of IoT in conjunction with Cloud Computing is the direction the Future Internet is pushing. 
@@ -236,7 +228,7 @@ There are two main approaches to the integration of WSN data with a Cloud servic
 \\\\
 The cloud providers AWS and Microsoft offer an IoT platform. Amazon's "AWS IoT", Microsoft's "Azure IoT Suite" both offers connectivity for most devices, graphic remote resource monitoring, data storage and analysis, data stream analysis, security and application platforms. These platforms offers a broad array of elastic resources and can be customized to accommodate a WSN. There are also more specialized services such as Thingspeak, Xively, Carriots and Kaa aimed only at IoT and might not offer the same underlying infrastructure as the big Cloud vendors.
 \\\\
-It is also possible to create a more ad-hoc solution using the resources of the Cloud. Using IaaS services from a Cloud provider it is possible to create a service with the specific resources the network needs. K. Lee \textit{et al}. \cite{5678063} explores a Cloud service for WSNs built on Amazon EC2 virtual machines. The article demonstrates ''how sensor networks can be combined with Cloud Computing to allow the offloading of resource-intensive tasks to the Cloud.''\cite{56780637}.
+It is also possible to create a more ad-hoc solution using the resources of the Cloud. Using IaaS services from a Cloud provider it is possible to create a service with the specific resources the network needs. K. Lee \textit{et al}. \cite{5678063} explores a Cloud service for WSNs built on Amazon EC2 virtual machines. The article demonstrates ''how sensor networks can be combined with Cloud Computing to allow the offloading of resource-intensive tasks to the Cloud.''\cite[p.~7]{5678063}.
 
 \section{Application layer protocols}
 One of the key issues in IoT and WSNs is power efficiency in devices, given that a large scale deployment would be severely compromised if the batteries of the nodes in the network had to be replaced often. Application layer protocols has an impact on power consumption as communication is the most power hungry task the devices perform. One must also keep in mind that packet loss can effect real time data analysis. These are issues to consider when deciding on a protocol. In this section follows a discussion the most common application layer protocols for IoT and WSNs.
@@ -302,18 +294,18 @@ Approaching technology in agriculture it would be possible to look at a range of
 \subsection{Automated Irrigation System}
 J. Gutiérrez \textit{et al}. \cite{6582678} has developed an automated irrigation system using a WSN comprised of soil-moisture and temperature sensors placed in the root zone of the plants. The systems consists of senor units, gateway nodes, the irrigation mechanisms and a web server hosting a web application. The sensor units communicated with the gateway nodes using ZigBee and the gateway nodes transmitted the data to the web server through a GPRS module via the public mobile network. The sensor units was powered by both battery power and solar power and contained the two sensors, a microcontroller unit and a ZigBee transmission unit. The gateway nodes contained a ZigBee module, a microcontroller and a GPRS module. The gateway nodes received, identified, recorded and analyzed the sensor data as well as controlling the pumps in the irrigation system.
 \\\\
-The motivation for the system was to optimize water use for agricultural crops in water scarce environments. During the 136 day test in a sage crop field ''water savings of up to 90\% compared with traditional irrigation practices of the agricultural zone''\cite{6582678174} was shown. J. Gutiérrez \textit{et al}. argues that ''the modular configuration of the automated irrigation system allows it to be scaled up for larger greenhouses or open fields''\cite{6582678166} and that the system is ''feasible and cost effective for optimizing water resources for agricultural production.''\cite{6582678174}.
+The motivation for the system was to optimize water use for agricultural crops in water scarce environments. During the 136 day test in a sage crop field ''water savings of up to 90\% compared with traditional irrigation practices of the agricultural zone''\cite[p.~174]{6582678} was shown. J. Gutiérrez \textit{et al}. argues that ''the modular configuration of the automated irrigation system allows it to be scaled up for larger greenhouses or open fields''\cite[p.~166]{6582678} and that the system is ''feasible and cost effective for optimizing water resources for agricultural production.''\cite[p.~174]{6582678}.
 \\\\
 This system shares many characteristics with the proof of concept described in this thesis. However it discusses a field study and the results to a larger extent than the system implementation. Their is seemingly no focus on the cost of the system and they do not describe how it can be deployed using cloud services. It is valuable input in providing an answer to the questions whether a WSN and data gathering system is a fesible way to reduce water usage in agriculture. The goal of this thesis is to go more in depth in describing the archtitectuaral and technology considerations in addition to discussing the feasability of such a system.  
 
 \subsection{Vineyards}
-J. Burrell \textit{et al}.\cite{1269130} focuses on how the agricultural workforce should play a role in the shaping of WSNs. The goal is to develop a WSN for use in a vineyard. The author has a human-centric research approach and use ''ethnographic methods including interviews, site tours, and observational work to broadly understand the work activities and priorities of the various roles working in a vineyard''\cite{126913038}.
+J. Burrell \textit{et al}.\cite{1269130} focuses on how the agricultural workforce should play a role in the shaping of WSNs. The goal is to develop a WSN for use in a vineyard. The author has a human-centric research approach and use ''ethnographic methods including interviews, site tours, and observational work to broadly understand the work activities and priorities of the various roles working in a vineyard''\cite[p.~38]{1269130}.
 
 \subsection{On-farm frost monitoring}
-F.J. Pierce \textit{et al}. \cite{PIERCE200832} describe ''hardware and software components of technologies developed for regional and on-farm sensor networks and their implementation in two agricultural applications in Washington State, an agricultural weather network and an on-farm frost monitoring network''. The objective of the work was to use the technologies to improve ''important farming operations that add value through improved efficiency and efficacy of targeted management practices''\cite{PIERCE200832}. For the on-farm frost monitoring network the authors implement a radio based star topology telemetry network and a ad-hoc software solution to collect, manage and display the data. The authors cooperate with the farmers to determine the requirements of the system. The system needs to ''report air temperature every minute to a computer operating anywhere on the farm''\cite{PIERCE200832}, it was important that ''multiple workers involved in the frost protection event be able to view current and trend data for each monitoring station in real time''\cite{PIERCE200832} and that ''The user needed to be able to set temperature thresholdsthat would trigger an alarm at their computer''\cite{PIERCE200832}. Although meeting some problems with weather and the radio communications, the WSN helped the farmers make more informed decisions about what to do when the frost occurred. 
+F.J. Pierce \textit{et al}. describe ''hardware and software components of technologies developed for regional and on-farm sensor networks and their implementation in two agricultural applications in Washington State, an agricultural weather network and an on-farm frost monitoring network'' \cite[abstract]{PIERCE200832} . The objective of the work was to use the technologies to improve ''important farming operations that add value through improved efficiency and efficacy of targeted management practices''\cite[abstract]{PIERCE200832}. For the on-farm frost monitoring network the authors implement a radio based star topology telemetry network and a ad-hoc software solution to collect, manage and display the data. The authors cooperate with the farmers to determine the requirements of the system. The system needs to ''report air temperature every minute to a computer operating anywhere on the farm''\cite[p.~35]{PIERCE200832}, it was important that ''multiple workers involved in the frost protection event be able to view current and trend data for each monitoring station in real time''\cite[p.~36]{PIERCE200832} and that ''The user needed to be able to set temperature thresholds that would trigger an alarm at their computer''\cite[p.~36]{PIERCE200832}. Although meeting some problems with weather and the radio communications, the WSN helped the farmers make more informed decisions about what to do when the frost occurred. 
 
 \subsection{Aquaponics}
-P.C.P De Silva \textit{et al}. \cite{7780266} has applied an IoT architecture to water quality control in an aquaponics system. Aquaponics is a soil less growing method in which fertelizer is created from within the system boundaries using fish waste. In this context the food production process is treated as ''a distributed industrial manufacturing process with strategic data acquisition, automated optimal control, and automated process control which is to be implemented in urban and rural areas.''\cite{77802661}. The system is comprised sensor and controlling units denoted as endpoints, an an IoT cluster, a  streaming analytics server and an data analytics server. The system is intended to facilitate for urban agriculture and addresses food security issues for crops produced intensively in limited spaces.  
+P.C.P De Silva and P.C.A De Silva has applied an IoT architecture to water quality control in an aquaponics system \cite{desilva}. Aquaponics is a soil less growing method in which fertelizer is created from within the system boundaries using fish waste. In this context the food production process is treated as ''a distributed industrial manufacturing process with strategic data acquisition, automated optimal control, and automated process control which is to be implemented in urban and rural areas.'' \cite[p.~1]{desilva}. The system is comprised sensor and controlling units denoted as endpoints, an an IoT cluster, a  streaming analytics server and an data analytics server. The system is intended to facilitate for urban agriculture and addresses food security issues for crops produced intensively in limited spaces.  
 
 \subsection{summary}
 As can be seen from this related work there are multiple methods and designs for monitoring different faucets of agriculture. And we can also see that similar implementations have been done. These implementation have a higher focus on automation, and monitoring. This work has been helpful in setting a scope for what has been achieved by others, and helped in forming the conclusions of this thesis. Especially in answering the question of whether a system with these characteristics is a feasible way to monitor and reduce water usage in agriculture. The goal is to expand on the concepts presented here by presenting both a generic design and a specific implementation as well as discussing the cost of hosting systems like this to a larger extent than what was done in the reference projects.
@@ -728,45 +720,45 @@ It would also be important to research the price of collecting agricultural data
 
 \printbibliography
 
-\chapter{Appendix Code}
+\chapter*{Appendix Code}
 \linespread{1}
 
-\section{init.lua}
+\section*{init.lua}
 The init .lua file is the file resposible for connecting do the WiFi network and running the deep sleep function of the nodemcu.
 \lstinputlisting[language=Java]{init.lua}
 
-\section{sth11.lua}
+\section*{sth11.lua}
 \lstinputlisting[language=Java]{sth11.lua}
 
-\section{main.lua}
+\section*{main.lua}
 main.lua is the file refenced in init.lua and is responsible for reading and sending the moisture data from the sensor
 \lstinputlisting[language=Java]{main.lua}
 
-\section{server.js}
+\section*{server.js}
 Server.js is responsible for recieving and saving the data sent from the motes.
 \lstinputlisting[language=Java]{server.js}
 
-\section{index.html}
+\section*{index.html}
 Index.html is the main file to control the front end
 \lstinputlisting[language=html]{index.html}
 
-\section{dashboard.html}
+\section*{dashboard.html}
 dashboard.html shows the tables and information for the water usage
 \lstinputlisting[language=html]{dashboard.html}
 
-\section{pageController.js}
+\section*{pageController.js}
 pageController.js contains the controllor for managing the front end
 \lstinputlisting[language=Java]{pageController.js}
 
-\section{mote simulator.py}
+\section*{mote simulator.py}
 Python mote simulator
 \lstinputlisting[language=Python]{mote_simulator2_0.py}
 
-\section{mote simulator.py v2}
+\section*{mote simulator.py v2}
 Python mote simulator
 \lstinputlisting[language=Python]{mote_simulator.py}
 \\\\
-\textbf{SYN, SYN-ACK, ACK}
+\section*{SYN, SYN-ACK, ACK}
 \\\\
 Christoffer Gard Osen was my partner on this project for more than two years, but decided to leave UiO at the end of 2018. Without him I would have felt very lost through this project and would like to extend a big thanks and acknowledgment for all the good conversations, discussion and collaboration.
 \end{document}
