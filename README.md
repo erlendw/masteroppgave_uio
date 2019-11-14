@@ -1,3 +1,5 @@
+https://erlendw.github.io/masteroppgave_uio/Using_sensor_networks_and_cloud_technology_to_capture_and_visualize_soil_moisture_data.pdf
+
 Using sensor networks and cloud technology
 
 to capture and visualize soil moisture data.
